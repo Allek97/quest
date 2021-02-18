@@ -1,0 +1,151 @@
+@import "../abstracts/mixins.scss";
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+@font-face {
+  font-family: circular-book;
+  src: url(../../fonts/CircularBook.ttf);
+}
+
+@font-face {
+  font-family: medieval-book;
+  src: url(../../fonts/OldeEnglish.ttf);
+}
+
+.dash {
+  display: block;
+  position: relative;
+  font-family: circular-book;
+  font-size: 1.75rem;
+  font-style: italic;
+  z-index: 1000;
+
+  @include unselectable;
+
+  &__list {
+    height: 7rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  &__element {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    height: 100%;
+
+    list-style: none;
+    display: inline-block;
+
+    &:last-child {
+      margin-right: 20.3rem;
+    }
+  }
+
+  &__router {
+    width: 100%;
+    padding: 3rem 4rem;
+    text-align: center;
+    line-height: 1rem;
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    position: absolute;
+    right: 11rem;
+
+    &,
+    &:link,
+    &:visited {
+      height: 1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 0;
+      transition: all 0.2s;
+      position: relative;
+      cursor: pointer;
+      color: black;
+    }
+
+    &:hover {
+      transform: translateY(3px);
+      box-shadow: 0 1rem 2rem rgba(black, 0.2);
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      );
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+
+    &:active {
+      outline: none;
+      transform: translateY(0px);
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      );
+    }
+
+    &:focus {
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      );
+
+      &::after {
+        background-image: linear-gradient(
+          to right,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      transition: all 0.4s;
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      );
+    }
+  }
+}

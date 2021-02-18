@@ -1,0 +1,29 @@
+@import "./abstracts/mixins";
+
+.grid {
+    display: grid;
+    /* Important pour faire ma grille */
+    grid-template-rows: repeat(29, 25px);
+    grid-template-columns: repeat(65, 25px);
+    position: absolute;
+    top: 185px;
+    left: 250px;
+    z-index: 20000;
+
+    @include unDraggable;
+}
+
+.container {
+    @include unDraggable;
+
+    height: 100%;
+    width: 100%;
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    background: white;
+}

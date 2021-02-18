@@ -1,0 +1,431 @@
+@keyframes addKnight {
+  0% {
+  }
+
+  25% {
+    transform: scale(0.5);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes addPrincess {
+  0% {
+  }
+
+  25% {
+    transform: scale(0.5);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes addWalls {
+  0% {
+    //  transform: scale(0.5);
+    background-color: rgb(37, 82, 102);
+  }
+
+  25% {
+    transform: scale(1.1);
+    background-color: rgb(31, 72, 90);
+  }
+
+  75% {
+    transform: scale(0.98);
+    background-color: rgb(27, 65, 82);
+    background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addWallsAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgb(12, 53, 71);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(12, 53, 71);
+    background: rgb(16, 46, 131);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addWeights {
+  50% {
+    transform: scale(1.2);
+    //background-color: rgb(12, 53, 71);
+  }
+
+  100% {
+    transform: scale(1);
+    //background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addShortcuts {
+  50% {
+    transform: scale(1.2);
+    //background-color: rgb(12, 53, 71);
+  }
+
+  100% {
+    transform: scale(1);
+    //background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.4);
+    background-color: #9c191e;
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(0.8);
+    background-color: rgba(24, 15, 136, 0.75);
+    border: 1px solid rgba(24, 15, 136, 0.75);
+  }
+
+  75% {
+    transform: scale(1.3);
+    background-color: rgba(0, 217, 159, 0.75);
+    border: 1px solid rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(180, 18, 18, 0.911);
+    border: 1px solid rgb(180, 16, 18);
+  }
+}
+
+@keyframes addAnimatedPathBacktrackingMaze {
+  0% {
+    transform: scale(1.2);
+    background-color: #6e1181;
+    //border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(1.1);
+    background-color: #6e1181;
+  }
+
+  99% {
+    transform: scale(1.05);
+    background-color: #6e1181;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #ffffff;
+    //border: 1px solid rgb(200, 205, 223);
+  }
+}
+
+@keyframes addAnimatedPathKruskul {
+  0% {
+    transform: scale(1.2);
+    background-color: #215796;
+    //border-radius: 50%;
+  }
+
+  50% {
+    transform: scale(1.1);
+    background-color: #215796;
+  }
+
+  99% {
+    transform: scale(1.05);
+    background-color: #215796;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #ffffff;
+    //border: 1px solid rgb(200, 205, 223);
+  }
+}
+
+@keyframes addAnimatedPathPrim {
+  0% {
+    transform: scale(1.2);
+    background-color: #21965b;
+    //border-radius: 100%;
+    //transform: rotate(0.25turn);
+    //border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(1);
+    background-color: #0a4226;
+    //transform: rotate(0.25turn);
+  }
+
+  99% {
+    transform: scale(1.05);
+    //transform: rotate(0.25turn);
+    background-color: #032212;
+    //background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    //transform: rotate(0.25turn);
+    background-color: #ffffff;
+    //border: 1px solid rgb(200, 205, 223);
+  }
+}
+
+@keyframes addAnimatedPathGrowingTree {
+  0% {
+    transform: scale(1.2);
+    background-color: #7e2c8f;
+    //border-radius: 100%;
+    //transform: rotate(0.25turn);
+    //border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(1);
+    background-color: #4f165a;
+    //transform: rotate(0.25turn);
+  }
+
+  99% {
+    transform: scale(1.05);
+    //transform: rotate(0.25turn);
+    background-color: #1f0524;
+    //background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    //transform: rotate(0.25turn);
+    background-color: #ffffff;
+    //border: 1px solid rgb(200, 205, 223);
+  }
+}
+
+@keyframes addHuntScans {
+  from {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #f2e68e;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes addWallScan1 {
+  from {
+    background-color: rgb(12, 53, 71);
+  }
+  50% {
+    background-color: rgb(171, 173, 24);
+  }
+  100% {
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addPassageScan1 {
+  from {
+    background-color: #0f5a22;
+  }
+  50% {
+    background-color: rgb(171, 173, 24);
+  }
+  100% {
+    background-color: #0f5a22;
+  }
+}
+
+@keyframes addWallScan2 {
+  from {
+    background-color: rgb(12, 53, 71);
+  }
+  50% {
+    background-color: rgb(171, 173, 24);
+  }
+  100% {
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addPassageScan2 {
+  from {
+    background-color: #0f5a22;
+  }
+  50% {
+    background-color: rgb(171, 173, 24);
+  }
+  100% {
+    background-color: #0f5a22;
+  }
+}
+
+@keyframes addHuntAndKill {
+  0% {
+    background-color: #0f5a225d;
+  }
+  50% {
+    background-color: #0f5a22b6;
+  }
+  100% {
+    background-color: #0f5a22;
+  }
+}
+
+@keyframes addWilson {
+  0% {
+    transform: scale(0.5);
+    background-color: rgba(189, 164, 22, 0.5);
+  }
+  35% {
+    background: rgb(192, 192, 192);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgba(180, 156, 21, 0.733);
+    //background: rgb(192, 192, 192);
+    //background: rgb(16, 46, 131);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(173, 151, 22);
+  }
+}
+
+@keyframes addEller {
+  0% {
+    background-color: #c47f2f34;
+  }
+  50% {
+    background-color: #c4662f81;
+    background: #c45e2f;
+  }
+  75% {
+    background-color: #c4522fbb;
+    background: #c45e2f;
+  }
+  100% {
+    background-color: #c45e2f;
+  }
+}
+
+@keyframes addRecursiveDivision {
+  0% {
+    transform: scale(1.2);
+    background-color: rgb(37, 82, 102);
+  }
+
+  25% {
+    transform: scale(1.1);
+    background-color: rgb(31, 72, 90);
+  }
+
+  75% {
+    transform: scale(0.98);
+    background-color: rgb(27, 65, 82);
+    background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes addAldousBroder {
+  0% {
+    transform: scale(1.2);
+    background-color: #215796;
+  }
+
+  25% {
+    transform: scale(1.1);
+    background-color: #215796;
+  }
+
+  75% {
+    transform: scale(0.98);
+    background-color: #215796;
+    background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #215796;
+  }
+}
+
+@keyframes addAldousBroder2 {
+  0% {
+    transform: scale(1.2);
+    background-color: #215796;
+  }
+
+  25% {
+    transform: scale(1.1);
+    background-color: #215796;
+  }
+
+  75% {
+    transform: scale(0.98);
+    background-color: #215796;
+    background: rgb(16, 46, 131);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #215796;
+  }
+}
