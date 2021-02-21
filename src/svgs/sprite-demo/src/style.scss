@@ -1,0 +1,29 @@
+body {
+  width: 1200px;
+  display :grid;
+  grid-template-columns:repeat(11,1fr);
+  grid-auto-rows: 80px ;
+  justify-items:center;
+  align-items:center ;
+  
+  
+}
+.container {
+    display:flex ;
+    flex-direction:column ;
+    justify-content:center ;
+    align-items: center;
+}
+
+.sprite {
+  width: 0;
+  height:0 ;
+}
+
+.name {
+  order:2 ;
+}
+
+.svgs {
+  order:1;
+}

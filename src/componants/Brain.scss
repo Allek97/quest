@@ -1,29 +1,20 @@
 @import "./abstracts/mixins";
 
+//NavBar + Grid
+.container {
+    // @include unDraggable;
+    display: flex;
+    background: white;
+}
+
 .grid {
     display: grid;
     /* Important pour faire ma grille */
     grid-template-rows: repeat(29, 25px);
-    grid-template-columns: repeat(65, 25px);
-    position: absolute;
-    top: 185px;
-    left: 250px;
-    z-index: 20000;
+    grid-template-columns: repeat(65, minmax(10px, 25px));
+
+    margin-top: 5rem;
+    margin-left: 2.5rem;
 
     @include unDraggable;
-}
-
-.container {
-    @include unDraggable;
-
-    height: 100%;
-    width: 100%;
-
-    &::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    background: white;
 }

@@ -2,43 +2,45 @@
 @import "./base/animations";
 
 .item {
-  @include hideSVG;
+    @include hideSVG;
 
-  background: white;
-  color: white;
-  width: 25px;
-  height: 25px;
-  border: 1px solid rgb(200, 205, 223);
+    background: white;
+    color: white;
+    width: 100%;
+    height: 100%;
+    //border: 1px solid rgb(200, 205, 223);
+    box-sizing: content-box;
+    border: 1px solid rgb(200, 205, 223);
 }
 
 .item--animation {
-  animation-name: addAnimatedPathBacktrackingMaze;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-
-  &.kruskal {
-    animation-name: addAnimatedPathKruskul;
+    animation-name: addAnimatedPathBacktrackingMaze;
     animation-duration: 2s;
-  }
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  &.prim {
-    animation-name: addAnimatedPathPrim;
-    animation-duration: 4s;
-  }
+    &.kruskal {
+        animation-name: addAnimatedPathKruskul;
+        animation-duration: 2s;
+    }
 
-  &.growingtree {
-    animation-name: addAnimatedPathGrowingTree;
-    animation-duration: 4s;
-  }
+    &.prim {
+        animation-name: addAnimatedPathPrim;
+        animation-duration: 4s;
+    }
+
+    &.growingtree {
+        animation-name: addAnimatedPathGrowingTree;
+        animation-duration: 4s;
+    }
 }
 
 .aldousbroder {
-  /*animation-name: addAldousBroder;
+    /*animation-name: addAldousBroder;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
   animation-delay: 0s;
@@ -46,41 +48,41 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-play-state: running;*/
-  background-color: #215796;
+    background-color: #215796;
 
-  &.afterpassage {
-    //animation-name: addAldousBroder2;
-    background-color: #5781b1;
-  }
+    &.afterpassage {
+        //animation-name: addAldousBroder2;
+        background-color: #5781b1;
+    }
 }
 
 .item-start {
-  background-image: url("../svgs/sworddd.svg");
+    background-image: url("../svgs/sworddd.svg");
 
-  background-size: auto;
+    background-size: 100% 100%;
 
-  animation-name: addKnight;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addKnight;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 .item-end {
-  background-image: url("../svgs/crown.svg");
-  background-size: auto;
+    background-image: url("../svgs/crown.svg");
+    background-size: 100% 100%;
 
-  animation-name: addPrincess;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addPrincess;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 /*.item-visited {
@@ -96,190 +98,190 @@
 }*/
 
 .item-wall {
-  animation-name: addWalls;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addWalls;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 .item-wall--animation {
-  animation-name: addWallsAnimation;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addWallsAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  &.recursive-division {
-    animation-name: addRecursiveDivision;
-    animation-duration: 2s;
-  }
+    &.recursive-division {
+        animation-name: addRecursiveDivision;
+        animation-duration: 2s;
+    }
 }
 
 .item-weight {
-  animation-name: addWeights;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
-  //animation-delay: 0;
-  animation-direction: alternate;
-  // animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addWeights;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    //animation-delay: 0;
+    animation-direction: alternate;
+    // animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  background-image: url("../svgs/shield.svg");
-  background-size: auto;
+    background-image: url("../svgs/shield.svg");
+    background-size: 100% 100%;
 }
 
 .item-shortcut {
-  animation-name: addShortcuts;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
-  //animation-delay: 0;
-  animation-direction: alternate;
-  // animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addShortcuts;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    //animation-delay: 0;
+    animation-direction: alternate;
+    // animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  background-image: url("../svgs/hourglass.svg");
-  background-size: auto;
+    background-image: url("../svgs/hourglass.svg");
+    background-size: 100% 100%;
 }
 
 .item-visited {
-  outline: none;
-  animation-name: visitedAnimation;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-  border: 1px solid rgb(0, 189, 218);
+    outline: none;
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border: 1px solid rgb(0, 189, 218);
 
-  &.weight {
-    background-image: url("../svgs/shield.svg");
-    background-size: auto;
-  }
+    &.weight {
+        background-image: url("../svgs/shield.svg");
+        background-size: 100% 100%;
+    }
 
-  &.shortcut {
-    background-image: url("../svgs/hourglass.svg");
-    background-size: auto;
-  }
+    &.shortcut {
+        background-image: url("../svgs/hourglass.svg");
+        background-size: 100% 100%;
+    }
 
-  &.start {
-    background-image: url("../svgs/sworddd.svg"); /*linear-gradient(red, yellow);*/
-    background-color: rgba(0, 190, 218, 0.75);
-    background-size: auto;
-  }
+    &.start {
+        background-image: url("../svgs/sworddd.svg"); /*linear-gradient(red, yellow);*/
+        background-color: rgba(0, 190, 218, 0.75);
+        background-size: 100% 100%;
+    }
 
-  &.end {
-    background-image: url("../svgs/crown.svg");
-    background-color: rgba(0, 190, 218, 0.75);
-    background-size: auto;
-  }
+    &.end {
+        background-image: url("../svgs/crown.svg");
+        background-color: rgba(0, 190, 218, 0.75);
+        background-size: 100% 100%;
+    }
 }
 
 .item-short-path {
-  animation-name: shortestPath;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: shortestPath;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  &.weight {
-    background-image: url("../svgs/shield.svg");
-    background-size: auto;
-  }
+    &.weight {
+        background-image: url("../svgs/shield.svg");
+        background-size: 100% 100%;
+    }
 
-  &.shortcut {
-    background-image: url("../svgs/hourglass.svg");
-    background-size: auto;
-  }
+    &.shortcut {
+        background-image: url("../svgs/hourglass.svg");
+        background-size: 100% 100%;
+    }
 
-  &.start {
-    background-image: url("../svgs/sworddd.svg");
-    background-color: rgba(180, 18, 18, 0.911);
-    background-size: auto;
-  }
+    &.start {
+        background-image: url("../svgs/sworddd.svg");
+        background-color: rgba(180, 18, 18, 0.911);
+        background-size: 100% 100%;
+    }
 
-  &.end {
-    background-image: url("../svgs/crown.svg");
-    background-color: rgba(180, 18, 18, 0.911);
-    background-size: auto;
-  }
+    &.end {
+        background-image: url("../svgs/crown.svg");
+        background-color: rgba(180, 18, 18, 0.911);
+        background-size: 100% 100%;
+    }
 }
 
 .huntandkill {
-  animation-name: addHuntAndKill;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addHuntAndKill;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 .huntscan {
-  animation-name: addHuntScans;
-  animation-duration: 0.1s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addHuntScans;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 
-  &.wall {
-    animation-name: addWallScan1;
-  }
+    &.wall {
+        animation-name: addWallScan1;
+    }
 
-  &.passage {
-    animation-name: addPassageScan1;
-  }
+    &.passage {
+        animation-name: addPassageScan1;
+    }
 
-  &.wallstate {
-    animation-name: addWallScan2;
-  }
+    &.wallstate {
+        animation-name: addWallScan2;
+    }
 
-  &.passagestate {
-    animation-name: addPassageScan2;
-  }
+    &.passagestate {
+        animation-name: addPassageScan2;
+    }
 }
 
 .leadvertex {
-  background-color: green;
+    background-color: green;
 }
 
 .wilson {
-  animation-name: addWilson;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addWilson;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 .eller {
-  animation-name: addEller;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+    animation-name: addEller;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 /* 0% {

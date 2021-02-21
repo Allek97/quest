@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+// BRAIN COMPONANTS
 import Grids from "./Grids";
 import NavBar from "./navigationBar/NavBar";
 
