@@ -2,6 +2,7 @@
     &::after {
         content: "";
         position: absolute;
+        z-index: -1;
         width: 13px;
         height: 13px;
         border-top: 0px solid rgb(18, 66, 87);
@@ -10,8 +11,6 @@
         border-left: 0px solid rgb(18, 66, 87);
         top: $yPos;
         left: $xPos;
-
-        z-index: -1;
 
         transform: rotate(135deg);
         background: #0c3547;
@@ -58,3 +57,58 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+@mixin addPathTrack($position) {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 25%;
+
+        @if $position == "top" {
+            transform: rotate(-90deg);
+        } @else if $position == "bottom" {
+            transform: rotate(90deg);
+        } @else if $position == "left" {
+            transform: rotate(180deg);
+        }
+
+        height: 1rem;
+        width: 1rem;
+
+        background-color: black;
+        mask-image: url("../../svgs/pathArrow.svg");
+        mask-size: cover;
+    }
+}
+
+// Experimental
+/*@mixin addBeforePathTrack($position) {
+    // border: none !important;
+    position: relative;
+    display: block;
+    z-index: 0;
+    &::before {
+        content: "";
+
+        //  display: block;
+        position: absolute;
+        //z-index: 11 !important;
+        height: 25px;
+        width: 25px;
+
+        border-top: 4px dashed rgb(0, 0, 0);
+
+        @if $position == "top" {
+            transform: rotate(-90deg) translate(50%, 50%);
+        } @else if $position == "right" {
+            transform: translate(50%, 50%);
+        } @else if $position == "bottom" {
+            transform: rotate(-90deg) translate(-50%, 50%);
+        } @else if $position == "left" {
+            transform: translate(-50%, 50%);
+        }
+    }
+}*/

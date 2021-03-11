@@ -7,6 +7,16 @@
     --color-secondary: #55c57a;
     --color-secondary-dark: #2fb784;
 
+    --color-tertiary: rgba(156, 154, 7, 0.5);
+    --color-tertiary-dark: rgba(121, 119, 5, 0.5);
+    --color-tertiary-dark-2: rgb(121, 119, 5);
+    --color-tertiary-darker: rgba(104, 102, 16, 0.5);
+
+    --color-quaternary: #b224ef;
+    --color-quaternary-dark: #9816cf;
+    --color-quaternary-light: #5055fa;
+    // #6371fb
+
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
     --color-grey-light-3: #f0eeee;
@@ -19,6 +29,8 @@
 
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.6);
+
+    height: 95vh !important;
 }
 
 * {
@@ -35,6 +47,11 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px
+
+    //Fix the disgusting bookmark in chrome
+    @media screen and (min-height: 930px) and (max-height: 950px) {
+        font-size: 60.4%;
+    }
 }
 
 body {
@@ -42,7 +59,7 @@ body {
     font-weight: 600 !important;
     line-height: 1.6 !important;
 
-    max-height: 100vh !important;
+    height: 95vh !important;
 }
 
 .App {

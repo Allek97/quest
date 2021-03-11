@@ -46,9 +46,12 @@
         z-index: -1;
         transition: all 0.4s;
     }
+
     &--router {
-        padding: 1.75rem 5rem !important;
+        padding: 2.1rem 5rem !important;
         font-size: 1.1rem;
+        font-style: none;
+        height: max-content !important;
 
         &:hover {
             transform: translateY(3px);
@@ -87,6 +90,24 @@
 
         &::after {
             background-color: $color-primary;
+        }
+    }
+
+    &--violet {
+        background: linear-gradient(119deg, #b224ef 24%, #5055fa 99%);
+        // background: -webkit-linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
+        //  background: -o-linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
+
+        color: $color-white;
+
+        &::after {
+            background: linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
+            background: -webkit-linear-gradient(
+                119deg,
+                #b224ef 11%,
+                #5055fa 55%
+            );
+            background: -o-linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
         }
     }
 

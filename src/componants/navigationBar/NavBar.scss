@@ -25,7 +25,7 @@ $greyText: #b3b3b3;
     justify-content: space-between;
     flex: 0 0 22.9rem;
 
-    height: 80.6rem;
+    height: 82.4rem;
 
     // height: -moz-calc(100% - (20px + 30px));
     //height: -webkit-calc(100vh - (20px + 100px));
@@ -57,6 +57,10 @@ $greyText: #b3b3b3;
         &--nohover::before {
             background-color: var(--color-primary-light-2) !important;
         }
+
+        /* &--maze-button {
+            @include tipAdding(3rem, 23.4rem);
+        }*/
     }
 
     &__item::before {
@@ -69,7 +73,8 @@ $greyText: #b3b3b3;
         background-color: var(--color-secondary);
         transform: scaleY(0);
         transform-origin: bottom;
-        transition: transform 0.2s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+        transition: transform 0.2s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s,
+            background-color 0.1s;
     }
 
     &__item:hover::before {
@@ -114,6 +119,10 @@ $greyText: #b3b3b3;
         }
     }
 
+    &__mazetip {
+        @include tipAdding(3rem, 23.43rem);
+    }
+
     &__algoname {
     }
 }
@@ -137,6 +146,7 @@ $greyText: #b3b3b3;
 
 .maze-nav {
     overflow-y: scroll;
+
     height: 44rem;
 
     &--closed {
@@ -144,19 +154,17 @@ $greyText: #b3b3b3;
     }
 
     &::-webkit-scrollbar {
-        width: 7px;
+        width: 5px;
     }
 
     &::-webkit-scrollbar-track {
-        //  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
+        background-color: rgba(184, 179, 179, 0.685);
     }
 
     &::-webkit-scrollbar-thumb {
         //#226f91;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
+        //  -webkit-border-radius: 10px;
+        //  border-radius: 10px;
         background-color: var(--color-secondary-dark);
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
     }
@@ -176,8 +184,9 @@ $greyText: #b3b3b3;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
-    @include tipAdding(3rem, -7px);
+    @include tipAdding(3rem, -0.7rem);
 
     &--closed {
         display: none;
@@ -198,7 +207,8 @@ $greyText: #b3b3b3;
         background-color: var(--color-secondary);
         transform: scaleY(0);
         transform-origin: bottom;
-        transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+        transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+            background-color 0.1s;
     }
 
     &__item:hover::before {
@@ -237,6 +247,10 @@ $greyText: #b3b3b3;
     }
 }
 
+.astar-list {
+    @include tipAdding(2.5rem, -0.7rem);
+}
+
 ///////////////////////////
 // MAZELIST
 
@@ -249,360 +263,3 @@ $greyText: #b3b3b3;
     text-align: center;
     padding: 1.5rem;
 }
-
-//Whatever garbage this was
-
-/* .navbar {
-    width: 228px;
-    height: 100%;
-    float: left;
-    background: rgb(12, 53, 71);
-    display: block;
-    position: relative;
-    // top: 70px;
-
-    @include unselectable;
-
-    svg {
-        height: 50px;
-        width: 50px;
-        margin-bottom: -25px;
-        display: block;
-        text-align: center;
-    }
-
-    ul {
-        margin: 0px;
-        padding: 0;
-
-        li {
-            margin: 0px;
-            margin-top: 150px;
-            margin-left: 50px;
-            width: 120px;
-            height: 50px;
-            color: $greyText;
-            list-style-type: none;
-            border-radius: 0px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            display: block;
-            text-align: center;
-            font-family: circular-book;
-            font-size: 1.75rem;
-            color: rgba(255, 255, 255, 0.87);
-
-            &:hover {
-                color: #1abc9c;
-                //background-color: #1abc9c;
-            }
-
-            &.launch-button {
-                width: 180px;
-                text-align: right;
-                margin-top: 125px;
-                position: relative;
-                left: -20px;
-                line-height: 30px;
-                //background-color: #2fb784;
-
-                svg {
-                    width: 34px;
-                    height: 34px;
-                    vertical-align: top;
-                    margin-left: 2px;
-                    position: relative;
-                    top: 5px;
-                }
- */
-/* .name {
-                    position: absolute;
-                    top: -23px;
-                    left: 40px;
-                    width: 120px;
-                    text-align: center;
-                }
-
-                .algoname {
-                    position: absolute;
-                    top: -10px;
-                    left: 45px;
-                    //width: 10px;
-                    text-align: center;
-                }
-
-                &--algoselected {
-                    width: 180px;
-                    text-align: right;
-                    margin-top: 125px;
-                    position: relative;
-                    left: -20px;
-                    line-height: 30px;
-
-                    svg {
-                        width: 34px;
-                        height: 34px;
-                        vertical-align: top;
-                        margin-left: 2px;
-                        position: relative;
-                        top: 5px;
-                    }
-
-                    .name {
-                        position: absolute;
-                        width: 70%;
-                        top: 15%;
-                        left: 55%;
-                        transform: translate(-50%, -50%);
-                        text-align: center;
-                    }
-
-                    &:hover {
-                        color: #e0e5e7;
-                    }
-                }
-            }
-
-            &.algo-button {
-                width: 180px;
-                text-align: center;
-                margin-top: 125px;
-                position: relative;
-                left: -20px;
-                line-height: 30px;
-                outline: none;
-
-                .algo-dash-down {
-                    @include rectangularBlock(228px, 450px, -50px);
-
-                    @include tipAdding(65px);
-
-                    &--astar {
-                        @include rectangularBlock(228px, 250px, -73.5px, 210px);
-
-                        @include tipAdding(65px);
-                    }
-
-                    li {
-                        margin: 0px;
-                        margin-top: 10px;
-                        margin-left: 18px;
-                        height: 45px;
-                        width: auto;
-                        position: relative;
-                        top: 10px;
-                        color: $greyText;
-                        list-style-type: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        transition: all 0.3s ease-in-out;
-                        display: block;
-                        left: -10px;
-                        position: relative;
-                        top: 0px;
-                        font-family: circular-book;
-                        font-size: 95%;
-                        color: rgba(255, 255, 255, 0.87);
-                        line-height: 45px;
-
-                        &:hover {
-                            //  color: rgb(43, 163, 39);
-                            background-color: #1abc9c;
-                        }
-                    }
-
-                    .a-star-arrow {
-                        svg {
-                            width: 15px;
-                            height: 15px;
-                            vertical-align: top;
-                            margin-left: 180px;
-                            position: absolute;
-                            top: 15px;
-                            fill: rgba(128, 128, 128, 0.39);
-                        }
-                    }
-                }
-
-                svg {
-                    width: 34px;
-                    height: 34px;
-                    vertical-align: top;
-                    margin-left: 2px;
-                    position: relative;
-                    top: 5px;
-                }
-
-                span {
-                    svg {
-                        width: 15px;
-                        height: 15px;
-                        vertical-align: top;
-                        margin-left: 150px;
-                        position: relative;
-                        top: -20px;
-                        fill: rgba(128, 128, 128, 0.39);
-                    }
-                }
-            }
-
-            &.maze-button {
-                width: 180px;
-                height: 75px;
-                text-align: center;
-                margin-top: 125px;
-                position: relative;
-                left: -20px;
-                line-height: 30px;
-                outline: none;
-
-                &.active-tip {
-                    @include tipAdding(55px, 126%);
-                }
-
-                .maze-dash-down {
-                    @include rectangularBlock(250px, 450px, -85px, 210px);
-
-                    //@include tipAdding(65px, 6%);
-
-                    li {
-                        margin: 0px;
-                        margin-top: 10px;
-                        margin-left: 18px;
-                        height: 45px;
-                        width: auto;
-                        position: relative;
-                        top: 10px;
-                        color: $greyText;
-                        list-style-type: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        transition: all 0.3s ease-in-out;
-                        display: block;
-                        left: -10px;
-                        position: relative;
-                        top: 0px;
-                        font-family: circular-book;
-                        font-size: 95%;
-                        color: rgba(255, 255, 255, 0.87);
-                        line-height: 45px;
-
-                        &:hover {
-                            //  color: rgb(43, 163, 39);
-                            background-color: #1abc9c;
-                        }
-                    } */
-
-/* #servers-cont {
-            flex: 0 0 auto;
-          }*/
-
-/* overflow-y: scroll;
-
-                    &::-webkit-scrollbar {
-                        width: 7px;
-                    }
-
-                    &::-webkit-scrollbar-track {
-                        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-                        -webkit-border-radius: 10px;
-                        border-radius: 10px;
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        /*#226f91;*/
-/*  -webkit-border-radius: 10px;
-                        border-radius: 10px;
-                        background: #1abc9c;
-                        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-                    }
-
-                    &::-webkit-scrollbar-thumb:window-inactive {
-                        background: #226f91;
-                    }
-                }
-
-                svg {
-                    width: 34px;
-                    height: 34px;
-                    vertical-align: top;
-                    margin-left: 2px;
-                    position: relative;
-                    top: 20px;
-                } */
-
-/*  span {
-                    svg {
-                        width: 15px;
-                        height: 15px;
-                        vertical-align: top;
-                        margin-left: 150px;
-                        position: relative;
-                        top: -50px;
-                        fill: rgba(128, 128, 128, 0.39);
-                    }
-                }
-            }
-
-            &.clear-board {
-                width: 180px;
-                text-align: center;
-                margin-top: 125px;
-                position: relative;
-                left: -20px;
-                line-height: 30px;
-
-                svg {
-                    width: 34px;
-                    height: 34px;
-                    vertical-align: top;
-                    margin-left: 2px;
-                    position: relative;
-                    top: 5px;
-                }
-            }
-
-            &.clear-walls {
-                width: 180px;
-                height: 75px;
-                text-align: center;
-                margin-top: 125px;
-                position: relative;
-                left: -20px;
-                line-height: 30px;
-
-                svg {
-                    width: 34px;
-                    height: 34px;
-                    vertical-align: top;
-                    margin-left: 2px;
-                    position: relative;
-                    top: 15px;
-                }
-            }
-        }
-    }
-}
-
-.btn {
-    &,
-    &:link,
-    &:visited {
-        text-decoration: none;
-        color: white;
-    }
-
-    &--sub {
-        &:hover {
-            color: white !important;
-        }
-    }
-
-    &:hover {
-        color: #c8cddf;
-    }
-}
-
-.void-space {
-    display: none;
-} */

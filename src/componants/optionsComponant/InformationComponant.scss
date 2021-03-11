@@ -1,0 +1,118 @@
+@import "../abstracts/mixins";
+
+/////////////////////////////////
+// Information
+
+.informations {
+    display: grid;
+
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+
+    grid-template-areas: "title title";
+
+    grid-gap: 2rem;
+
+    width: 30%;
+    height: 90%;
+
+    background: linear-gradient(180deg, #da2822 0%, #62186b 100%) no-repeat;
+
+    &__title {
+        grid-area: title;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 1rem;
+
+        background: linear-gradient(360deg, #9c231e, #35073b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        font-size: 2.7rem;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        @include unselectable;
+    }
+
+    &__selectedalgo-text,
+    &__pathcost-text,
+    &__visited-text,
+    &__depthlevel-text,
+    &__threshold-text,
+    &__threshold-count-text,
+    &__relaxation-text,
+    &__status-text {
+        width: max-content;
+        margin-left: 2rem;
+
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(238, 213, 213);
+        text-transform: uppercase;
+        text-shadow: var(--shadow-light);
+        cursor: default;
+
+        @include unselectable;
+    }
+
+    &__selectedalgo,
+    &__pathcost,
+    &__visited,
+    &__depthlevel,
+    &__threshold,
+    &__threshold-count,
+    &__relaxation,
+    &__status {
+        transition: all 0.2s;
+
+        width: 90%;
+
+        margin-left: 1.5rem;
+
+        //background: linear-gradient(360deg, #ffffff 0%, #c6c4ce 100%);
+        background-image: linear-gradient(to right, #070957, #0e580b);
+        // background-image: linear-gradient(to right, #070957, #09613f);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        font-size: 1.55rem;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        cursor: default;
+
+        @include unselectable;
+
+        &:hover {
+            transform: skewY(-1deg) skewX(-2deg) scale(1.1);
+            text-shadow: 0.5rem 1rem 2rem rgba(black, 0.2);
+        }
+    }
+    &__pathcost {
+        margin-left: 0rem;
+    }
+    &__depthlevel {
+        margin-left: 7rem;
+    }
+
+    &__threshold {
+        margin-left: 4rem;
+    }
+
+    &__threshold-count {
+        margin-left: 8rem;
+        width: 80%;
+        background-image: linear-gradient(to right, #070957 15%, #083b06 55%);
+    }
+
+    &__status {
+        background-image: linear-gradient(to right, #070957 30%, #083b06 75%);
+    }
+}

@@ -32,19 +32,22 @@ $color-black: #000;
 }
 
 .dash {
+    position: relative;
+
+    z-index: 100;
+
+    display: flex;
+
+    z-index: 5;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(255, 255, 255);
+
     font-family: circular-book;
     font-size: 1.75rem;
     font-style: italic;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-
-    border-bottom: 1px solid $color-grey-light-1;
-
-    position: relative;
-    z-index: 5;
 
     @include unselectable;
 
@@ -69,12 +72,19 @@ $color-black: #000;
 
     &__list {
         display: flex;
-        align-items: stretch;
+        align-self: stretch;
         margin-right: 3rem;
     }
 
     &__element {
-        align-items: center;
+        display: flex;
+        align-items: stretch;
         list-style: none;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
     }
 }

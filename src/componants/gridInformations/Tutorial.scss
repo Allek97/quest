@@ -1,0 +1,493 @@
+@import "../scssComponants/button";
+
+////////////////////////
+//Roblox
+
+.tuto {
+    display: inline-block;
+    transition: all 0.2s;
+    //   margin-right: -0.5rem;
+    background-image: linear-gradient(
+        to right,
+        rgb(133, 36, 36),
+        rgb(18, 112, 15)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    cursor: default;
+
+    &:hover {
+        transform: skewY(-1deg) skewX(2deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 20%);
+    }
+}
+
+.roblox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    flex-shrink: 0;
+
+    animation-name: addTestEffect;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+
+    width: 4rem;
+    height: 4rem;
+    margin-left: 0rem;
+    margin-right: 2rem;
+    box-sizing: content-box;
+    //background-color: var(--color-primary-light-2);
+    background-color: var(--color-tertiary-darker);
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    &:hover + .background {
+        transform: scale(100);
+    }
+
+    &__item {
+        animation-name: addTestEffect2;
+        animation-duration: 5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+
+        width: 1.75rem;
+        height: 1.75rem;
+        box-sizing: content-box;
+        background-color: white;
+    }
+
+    &__help-svg {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+////////////////////////
+//Tutorial
+
+.background {
+    position: fixed; //pour fixer un element si on scroll down and up
+    z-index: 99;
+    top: 10rem;
+    right: 4.5rem;
+
+    height: 1rem;
+    width: 1rem;
+
+    transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1); //easings.net
+
+    border-radius: 50%;
+    background-image: radial-gradient(
+        var(--color-quaternary),
+        var(--color-quaternary-light)
+    );
+
+    &--expand {
+        transform: scale(500) !important;
+    }
+
+    overflow: hidden;
+}
+
+.tutorial {
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    z-index: 1000000;
+
+    box-shadow: var(--shadow-dark);
+
+    height: 80vh;
+    width: 50%;
+
+    background-color: white;
+
+    transform: scale(1);
+    font-size: 4rem;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba(184, 179, 179, 0.685);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        //#226f91;
+        //  -webkit-border-radius: 10px;
+        //  border-radius: 10px;
+        background-color: var(--color-secondary-dark);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    &::-webkit-scrollbar-thumb:window-inactive {
+        background-color: #226f91;
+    }
+
+    &--closed {
+        display: none;
+    }
+}
+
+//////////////////////////
+// Premier slide : introduction
+
+.introduction {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    padding: 0;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(#b224ef, 0.8),
+            rgba(#9816cf, 0.8)
+        ),
+        url(../../img/dragon_on_castle.jpg);
+    background-size: cover;
+    background-position: center;
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    color: white;
+
+    &__heading {
+        transition: all 0.2s;
+
+        margin-top: -10%;
+
+        color: rgba(#ffffff, 0.8);
+
+        font-size: 5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+
+        &:hover {
+            transform: skewY(2deg) skewX(15deg) scale(1.1);
+            text-shadow: var(--shadow-dark);
+        }
+    }
+
+    &__logo {
+        content: "";
+
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+
+        display: inline-block;
+        height: 5rem;
+        width: 5rem;
+        // background-color: white;
+        /*  background-image: url("../../img/favicon.png");
+        background-size: cover;*/
+
+        background: linear-gradient(119deg, #8f17c2 24%, #5055fa 99%);
+        mask-image: url("../../img/favicon.png");
+        mask-size: cover;
+    }
+
+    &__marker {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        background: linear-gradient(299deg, #3f0d55 24%, #454ae9 99%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 1.7rem;
+    }
+
+    &__text-1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.5rem;
+    }
+
+    &__button {
+        position: absolute !important;
+        bottom: 15rem;
+        z-index: 1000000 !important;
+
+        display: flex !important;
+
+        cursor: grab;
+    }
+
+    &__text-2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0rem;
+        text-transform: none;
+        margin-right: 1rem;
+    }
+}
+
+//////////////////////////
+// Deuxieme slide : explanation
+
+.explanation {
+    position: relative;
+    z-index: 9;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    margin-top: -15%;
+
+    color: rgba(#ffffff, 0.8);
+
+    background-image: linear-gradient(211deg, #5055fa 24%, #8f17c2 70%);
+
+    &__marker {
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
+
+        background: linear-gradient(119deg, #7f1aaa 24%, #2328af 99%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 1.7rem;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        height: 100%;
+        margin-top: 15%;
+    }
+
+    &__heading {
+        transition: all 0.2s;
+
+        width: 85%;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        text-align: center;
+
+        &:hover {
+            transform: skewY(2deg) skewX(15deg);
+            text-shadow: var(--shadow-dark);
+        }
+    }
+
+    &__text {
+        width: 80%;
+        margin-top: -8%;
+
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        text-align: center;
+    }
+
+    &__image {
+        height: 25rem;
+        width: 25rem;
+        margin-bottom: 10rem;
+
+        background: linear-gradient(211deg, #5b0b7e 60%, #0f17ec 99%);
+        mask-image: url("../../img/dragon-img.png");
+        mask-size: cover;
+    }
+}
+
+//////////////////////////
+// Troisieme slide : But
+
+.goal {
+    position: relative;
+    z-index: 12;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 106%;
+    margin-top: -15%;
+
+    color: rgba(#ffffff, 0.8);
+
+    -webkit-clip-path: polygon(0 14.5%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 14.5%, 100% 0, 100% 100%, 0 100%);
+
+    background-image: linear-gradient(211deg, #8f17c2 24%, #5055fa 70%);
+
+    &__marker {
+        position: absolute;
+        top: 10rem;
+        right: 1rem;
+
+        background: linear-gradient(299deg, #480d61 24%, #0f17ec 99%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 1.7rem;
+    }
+
+    &__heading {
+        transition: all 0.2s;
+
+        width: 85%;
+        margin-top: 15%;
+
+        font-size: 4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        text-align: center;
+
+        &:hover {
+            transform: skewY(2deg) skewX(15deg);
+            text-shadow: var(--shadow-dark);
+        }
+    }
+
+    &__container {
+        margin-top: 5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0.1rem;
+        text-align: center;
+    }
+
+    &__text {
+        width: 60%;
+        //margin-top: -8%;
+
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0.1rem;
+        justify-self: center;
+    }
+
+    &__pictures {
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+
+        width: 75%;
+        height: 30rem;
+
+        margin-top: 10rem;
+    }
+
+    &__image {
+        position: absolute;
+
+        transition: all 0.2s;
+        transform: scale(0.9);
+
+        outline-offset: 2rem;
+
+        &--1 {
+            box-shadow: var(--shadow-light);
+            left: 2rem;
+            border-radius: 10%;
+        }
+
+        &--2 {
+            box-shadow: var(--shadow-dark);
+            height: 30rem;
+            width: 30rem;
+
+            top: -1rem;
+            right: 1rem;
+        }
+
+        &:hover {
+            transform: scale(1.05) translateY(-0.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+            z-index: 20;
+        }
+
+        &--1:hover {
+            outline: 1.5rem solid #4448cca6;
+        }
+        &--2:hover {
+            outline: 1.5rem solid var(--color-quaternary);
+        }
+    }
+}
+
+//////////////////////
+// Quatrieme section : Functionalités
+
+/*  &__container {
+        margin-top: 10rem;
+
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr 2fr;
+
+        grid-template-areas:
+            "main picture"
+            "secondary picture";
+
+        grid-gap: 3rem;
+    }
+
+    &__main {
+        grid-area: main;
+    }
+
+    &__secondary {
+        grid-area: secondary;
+    }
+
+    &__pictures {
+        grid-area: picture;
+    }*/

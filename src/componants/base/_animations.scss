@@ -118,6 +118,29 @@
     }
 }
 
+// IDA* + IDDFS
+@keyframes revisitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: rgba(52, 3, 56, 0.75);
+        //   border-radius: 100%;
+    }
+
+    50% {
+        background-color: rgba(88, 6, 95, 0.75);
+    }
+
+    75% {
+        transform: scale(1.2);
+        background-color: rgba(92, 4, 165, 0.74);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(114, 10, 233, 0.75);
+    }
+}
+
 @keyframes shortestPath {
     0% {
         transform: scale(0.4);
@@ -143,6 +166,8 @@
         border: 1px solid rgb(180, 16, 18);
     }
 }
+
+// MAZE ANIMATIONS
 
 @keyframes addAnimatedPathBacktrackingMaze {
     0% {
@@ -430,6 +455,48 @@
     }
 }
 
+@keyframes addSideWinderMaze {
+    0% {
+        //  transform: scale(0.3);
+        background-color: rgba(41, 4, 24, 0.75);
+        //  border-radius: 100%;
+    }
+    50% {
+        background-color: rgba(97, 0, 20, 0.75);
+    }
+
+    75% {
+        transform: scale(1.1);
+        background-color: rgba(216, 5, 141, 0.75);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(76, 20, 116, 0.75);
+    }
+}
+
+@keyframes addBinaryTreeMaze {
+    0% {
+        //  transform: scale(0.3);
+        background-color: rgba(102, 220, 224, 0.75);
+        //  border-radius: 100%;
+    }
+    50% {
+        background-color: rgba(22, 112, 116, 0.75);
+    }
+
+    75% {
+        // transform: scale(1.1);
+        background-color: rgba(18, 99, 102, 0.75);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgb(12, 81, 83);
+    }
+}
+
 ////////////////////////////
 // TEST EFFECT
 
@@ -479,5 +546,154 @@
 
     100% {
         transform: rotate(-45deg);
+    }
+}
+
+//////////////////////
+// LEGEND ANIMATION
+
+@keyframes growUp {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes disappear {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+////////////////////
+// TUTORIAL ANIMATION
+
+@keyframes tutorialDisappear {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes tutorialAppear {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+////////////////////////
+// OPTION BOX ANIMATION
+
+@keyframes rotatingWheel {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes colorChanging {
+    0% {
+        background-image: linear-gradient(
+            to right,
+            rgb(133, 36, 36),
+            rgb(18, 112, 15)
+        );
+    }
+
+    50% {
+        background-image: linear-gradient(
+            to right,
+            rgb(133, 115, 36),
+            rgb(15, 112, 107)
+        );
+    }
+
+    100% {
+        background-image: linear-gradient(
+            to right,
+            rgb(180, 170, 30),
+            rgb(89, 15, 112)
+        );
+    }
+}
+
+////////////////////////////////
+// Option Wheel
+
+@keyframes wheelStart {
+    0% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/////////////////////////////////
+// Content box animation
+
+@keyframes optionStart {
+    0% {
+        transform: translate(-35%, -60%) scale(0.3);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes optionEnd {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-50%, -60%) scale(0);
     }
 }

@@ -24,6 +24,7 @@ import cellularAutomatonMaze from "./mazeCreations/CellularAutomatonMaze";
 
 import animateAlgo from "./untilityFunctionsBrain/AnimateAlgo";
 import animateBellmanFord from "./untilityFunctionsBrain/AnimateBellmanFord";
+import animateIDAlgo from "./untilityFunctionsBrain/AnimateIDAlgo";
 import resetCSS from "./untilityFunctionsBrain/ResetCSS";
 import resetCSSAll from "./untilityFunctionsBrain/ResetCSSAll";
 import activateWalls from "./untilityFunctionsBrain/ActivateWalls";
@@ -31,10 +32,16 @@ import activateWeights from "./untilityFunctionsBrain/ActivateWeights";
 import activateShortcuts from "./untilityFunctionsBrain/ActivateShortcuts";
 import dragItem from "./untilityFunctionsBrain/DragItem";
 import updateStateBeforeAlgoStart from "./untilityFunctionsBrain/UpdateStateBeforeAlgoStart";
+import resetWeights from "./untilityFunctionsBrain/ResetWeights";
 import updateWallsState from "./untilityFunctionsBrain/UpdateWallsState";
+
+import AlgoInformation from "./algoAndMazeInformation/AlgoInformation";
+import OptionsComponant from "./optionsComponant/OptionsComponant";
 
 import fillGridWithWalls from "./untilityFunctionsBrain/FillGridWithWalls";
 import emptyGrid from "./untilityFunctionsBrain/EmptyGrid";
+
+import Draggable, { DraggableCore } from "react-draggable";
 
 import {
     BFS,
@@ -44,6 +51,9 @@ import {
     classicGreedy,
     greedyBFS,
     bellmanFord,
+    IDDFS,
+    IDA,
+    greedyBFSW,
 } from "./searchAlgorithms/MainAlgorithmsList";
 
 import {
@@ -66,18 +76,21 @@ class Brain extends Component {
             knightGettingDragged: false,
             princessGettingDragged: false,
             isAlgoInProgress: false,
-            whichAlgoRunnning: {
-                breathFS: false,
-                depthFS: false,
-                dijkstra: false,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: false,
-                basicGreedy: false,
-                bellmanFord: false,
-            },
+            whichAlgoIsSelected: "",
+            isOptionWheelOpen: false,
+            isDiagonal: false,
+            weightValue: 5,
+            rewardValue: -0.5,
+            // Done to collect information for the Option wheel componant
+            //IDDFS et IDA*
+            totalPathCost: Infinity,
+            visitedCount: Infinity,
+            lastDepthLevel: Infinity,
+            lastThreshold: Infinity,
+            thresholdCount: Infinity,
+            //Bellman Ford
+            relaxationCountBF: Infinity,
+            negativeCycleBF: null,
         };
     }
 
@@ -88,8 +101,12 @@ class Brain extends Component {
                 nodes.push({
                     key: uuidv4(),
                     id: uuidv4(),
-                    isStart: row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
-                    isEnd: row === PRINCESS_ROW && col === PRINCESS_COL ? true : false,
+                    isStart:
+                        row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
+                    isEnd:
+                        row === PRINCESS_ROW && col === PRINCESS_COL
+                            ? true
+                            : false,
                     isWall: false,
                     row: row,
                     column: col,
@@ -106,268 +123,20 @@ class Brain extends Component {
         }
         this.setState({ nodes: nodes });
     }
-
-    startBellmanFord = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState({
-            whichAlgoRunnning: {
-                ...this.state.whichAlgoRunnning,
-                breathFS: false,
-                depthFS: false,
-                dijkstra: false,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: false,
-                basicGreedy: false,
-                bellmanFord: true,
-            },
-        });
-        console.log(newNodes);
-        const timeLength = animateBellmanFord(newNodes, false);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startBFS = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState({
-            whichAlgoRunnning: {
-                ...this.state.whichAlgoRunnning,
-                breathFS: true,
-                depthFS: false,
-                dijkstra: false,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: false,
-                basicGreedy: false,
-                bellmanFord: false,
-            },
-        });
-
-        const timeLength = animateAlgo(BFS, newNodes);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startDFS = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState({
-            whichAlgoRunnning: {
-                ...this.state.whichAlgoRunnning,
-                breathFS: false,
-                depthFS: true,
-                dijkstra: false,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: false,
-                basicGreedy: false,
-                bellmanFord: false,
-            },
-        });
-
-        const timeLength = animateAlgo(DFS, newNodes);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startDijkstra = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState({
-            whichAlgoRunnning: {
-                ...this.state.whichAlgoRunnning,
-                breathFS: false,
-                depthFS: false,
-                dijkstra: true,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: false,
-                basicGreedy: false,
-                bellmanFord: false,
-            },
-        });
-
-        const timeLength = animateAlgo(dijkstra, newNodes);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startAStarGreedyAlgorithm = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState({
-            whichAlgoRunnning: {
-                ...this.state.whichAlgoRunnning,
-                breathFS: false,
-                depthFS: false,
-                dijkstra: false,
-                aStarManhattan: false,
-                aStarDiagonal: false,
-                aStarEuclidien: false,
-                aStarEuclidienCarre: false,
-                greedyBFS: true,
-                basicGreedy: false,
-                bellmanFord: false,
-            },
-        });
-
-        const timeLength = animateAlgo(greedyBFS, newNodes);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startAStar = (heuristicFunction) => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-
-        if (heuristicFunction.name === "manhattanDistance") {
-            this.setState({
-                whichAlgoRunnning: {
-                    ...this.state.whichAlgoRunnning,
-                    breathFS: false,
-                    depthFS: false,
-                    dijkstra: false,
-                    aStarManhattan: true,
-                    aStarDiagonal: false,
-                    aStarEuclidien: false,
-                    aStarEuclidienCarre: false,
-                    greedyBFS: false,
-                    BasicGreedy: false,
-                    bellmanFord: false,
-                },
-            });
-        } else if (heuristicFunction.name === "diagonalDistance") {
-            this.setState({
-                whichAlgoRunnning: {
-                    ...this.state.whichAlgoRunnning,
-                    aStarDiagonal: true,
-                    breathFS: false,
-                    depthFS: false,
-                    dijkstra: false,
-                    aStarManhattan: false,
-                    aStarDiagonal: true,
-                    aStarEuclidien: false,
-                    aStarEuclidienCarre: false,
-                    greedyBFS: false,
-                    BasicGreedy: false,
-                    bellmanFord: false,
-                },
-            });
-        } else if (heuristicFunction.name === "euclidienDistance") {
-            this.setState({
-                whichAlgoRunnning: {
-                    ...this.state.whichAlgoRunnning,
-                    aStarEuclidien: true,
-                    breathFS: false,
-                    depthFS: false,
-                    dijkstra: false,
-                    aStarManhattan: false,
-                    aStarDiagonal: false,
-                    aStarEuclidien: true,
-                    aStarEuclidienCarre: false,
-                    greedyBFS: false,
-                    BasicGreedy: false,
-                    bellmanFord: false,
-                },
-            });
-        } else if (heuristicFunction.name === "squaredEuclidienDistance") {
-            this.setState({
-                whichAlgoRunnning: {
-                    ...this.state.whichAlgoRunnning,
-                    aStarEuclidienCarre: true,
-                    breathFS: false,
-                    depthFS: false,
-                    dijkstra: false,
-                    aStarManhattan: false,
-                    aStarDiagonal: false,
-                    aStarEuclidien: false,
-                    aStarEuclidienCarre: true,
-                    greedyBFS: false,
-                    BasicGreedy: false,
-                    bellmanFord: false,
-                },
-            });
-        }
-
-        const timeLength = animateAlgo(aStar, newNodes, heuristicFunction);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
-    startClassicGreedy = () => {
-        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
-        resetCSS(this.state.nodes);
-        this.setState({ nodes: newNodes });
-        this.setState(
-            {
-                whichAlgoRunnning: {
-                    ...this.state.whichAlgoRunnning,
-                    breathFS: false,
-                    depthFS: false,
-                    dijkstra: false,
-                    aStarManhattan: false,
-                    aStarDiagonal: false,
-                    aStarEuclidien: false,
-                    aStarEuclidienCarre: false,
-                    greedyBFS: false,
-                    basicGreedy: true,
-                    bellmanFord: false,
-                },
-            },
-            () => {
-                this.setState({
-                    whichAlgoRunnning: {
-                        ...this.state.whichAlgoRunnning,
-                        classicGreedy: true,
-                    },
-                });
-            }
-        );
-
-        const timeLength = animateAlgo(classicGreedy, newNodes);
-        this.setState({ isAlgoInProgress: true });
-        setTimeout(() => {
-            this.setState({ isAlgoInProgress: false });
-        }, timeLength);
-    };
-
+    //////////////////////////////////
+    // RESET BOARD
     resetBoard = (myFunction = () => {}) => {
         const nodes = [];
         for (let row = 0; row < ROW_SIZE; row++) {
             for (let col = 0; col < COLUMN_SIZE; col++) {
                 nodes.push({
                     id: uuidv4(),
-                    isStart: row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
-                    isEnd: row === PRINCESS_ROW && col === PRINCESS_COL ? true : false,
+                    isStart:
+                        row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
+                    isEnd:
+                        row === PRINCESS_ROW && col === PRINCESS_COL
+                            ? true
+                            : false,
                     isWall: false,
                     row: row,
                     column: col,
@@ -388,6 +157,8 @@ class Brain extends Component {
             : this.setState({ nodes: nodes });
     };
 
+    //////////////////////////////////
+    // MOUSE HANDLING : ADD WALLS,WEIGHTS,REWARDS ....
     handleMouseDown = (row, col, idDragged) => {
         activateWalls(this.state.nodes, row, col, idDragged);
         const htmlLink = document.getElementById(idDragged).className;
@@ -417,9 +188,19 @@ class Brain extends Component {
         }
         if (this.state.isPressed) activateWalls(this.state.nodes, row, col, id);
         if (this.state.knightGettingDragged)
-            dragItem(this.state.nodes, id, "knight", this.state.whichAlgoRunnning, animateAlgo);
+            dragItem(
+                this.state.nodes,
+                id,
+                "knight",
+                this.state.whichAlgoRunnning
+            );
         if (this.state.princessGettingDragged)
-            dragItem(this.state.nodes, id, "princess", this.state.whichAlgoRunnning, animateAlgo);
+            dragItem(
+                this.state.nodes,
+                id,
+                "princess",
+                this.state.whichAlgoRunnning
+            );
     };
 
     handleMouseUp = () => {
@@ -454,6 +235,352 @@ class Brain extends Component {
         activateShortcuts(this.state.nodes, row, col);
     };
 
+    addResetWeights = (isWeighted) => {
+        if (!isWeighted) return;
+        resetWeights(this.state.nodes);
+        const newNodes = updateStateBeforeAlgoStart(
+            this.state.nodes,
+            isWeighted
+        );
+        this.setState({ nodes: newNodes });
+    };
+
+    //////////////////////////////////
+    // Algorithm information
+    updateSelectedAlgo = (selectedAlgo) => {
+        this.setState({ whichAlgoIsSelected: selectedAlgo });
+    };
+
+    ///////////////////////////////////
+    // OPTIONS : DIAGONAL,WEIGHT/REWARD VALUE,SPEED
+    updateDiagonal = (isDiagonal) => {
+        this.setState({ isDiagonal: isDiagonal });
+    };
+
+    setOptionWheel = (isOptionWheelOpen) => {
+        this.setState({ isOptionWheelOpen: isOptionWheelOpen });
+    };
+    //////////////////////////////////
+    // ALGORITHMES
+    startWeightedGreedyAlgorithm = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            greedyBFSW,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startIDA = (heuristicName) => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,lastThreshold,tresholdCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateIDAlgo(
+            IDA,
+            newNodes,
+            heuristicName,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const lastThreshold = informationPackage[1];
+        const thresholdCount = informationPackage[2];
+        console.log(thresholdCount);
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            lastThreshold: lastThreshold,
+            thresholdCount: thresholdCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startIDDFS = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,lastDepthLevel
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateIDAlgo(
+            IDDFS,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage,
+            200,
+            50,
+            175
+        );
+        const totalPathCost = informationPackage[0];
+        const lastDepthLevel = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            lastDepthLevel: lastDepthLevel,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startBellmanFord = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,relaxationCount,negativeCycle
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateBellmanFord(
+            newNodes,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const relaxationCountBF = informationPackage[1];
+        const negativeCycleBF = informationPackage[2];
+
+        console.log(relaxationCountBF);
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            relaxationCountBF: relaxationCountBF,
+            negativeCycleBF: negativeCycleBF,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startBFS = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            BFS,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startDFS = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            DFS,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startDijkstra = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            dijkstra,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startAStarGreedyAlgorithm = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            greedyBFS,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startAStar = (heuristicFunction) => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            aStar,
+            newNodes,
+            heuristicFunction,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    startClassicGreedy = () => {
+        const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+        // THIS WILL HAVE ALL THE INFORMATIONS ABOUT(in order) totalPathCost,visitedCount
+        let informationPackage = [];
+
+        resetCSS(this.state.nodes);
+
+        this.setState({ nodes: newNodes });
+
+        const timeLength = animateAlgo(
+            classicGreedy,
+            newNodes,
+            undefined,
+            this.state.isDiagonal,
+            informationPackage
+        );
+
+        const totalPathCost = informationPackage[0];
+        const visitedCount = informationPackage[1];
+
+        this.setState({
+            isAlgoInProgress: true,
+            totalPathCost: totalPathCost,
+            visitedCount: visitedCount,
+        });
+
+        setTimeout(() => {
+            this.setState({ isAlgoInProgress: false });
+        }, timeLength);
+    };
+
+    //////////////////////////////////
+    // MAZE GENERATE
     addRandomMaze = () => {
         resetCSSAll(this.state.nodes);
         const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
@@ -738,7 +865,12 @@ class Brain extends Component {
 
         this.setState({ isAlgoInProgress: true });
 
-        const huntData = huntAndKillMaze(this.state.nodes, visitedMazeCells, ROW_SIZE, COLUMN_SIZE);
+        const huntData = huntAndKillMaze(
+            this.state.nodes,
+            visitedMazeCells,
+            ROW_SIZE,
+            COLUMN_SIZE
+        );
 
         const animationSpeed = huntData[0];
         const scanAnimationSpeed = huntData[1];
@@ -748,7 +880,8 @@ class Brain extends Component {
         visitedMazeCells.forEach((status, node) => {
             visitedTimeLength++;
             if (status[0] === "Wall") {
-                visitedTimeLength += (scanAnimationSpeed * (status[1] + 1)) / animationSpeed;
+                visitedTimeLength +=
+                    (scanAnimationSpeed * (status[1] + 1)) / animationSpeed;
             }
         });
 
@@ -859,7 +992,13 @@ class Brain extends Component {
 
         this.setState({ isAlgoInProgress: true });
 
-        ellerMaze(this.state.nodes, visitedMazeCells, visitedVertexList, ROW_SIZE, COLUMN_SIZE);
+        ellerMaze(
+            this.state.nodes,
+            visitedMazeCells,
+            visitedVertexList,
+            ROW_SIZE,
+            COLUMN_SIZE
+        );
         const visitedTimeLength = (visitedMazeCells.size + 1) * 35 + 4000;
 
         setTimeout(() => {
@@ -932,7 +1071,10 @@ class Brain extends Component {
             if (pairingCount === 0) {
                 visitedMazeCells.set(node, visitedMazeCellsKeys[0]);
             } else {
-                visitedMazeCells.set(node, visitedMazeCellsKeys[pairingCount - 1]);
+                visitedMazeCells.set(
+                    node,
+                    visitedMazeCellsKeys[pairingCount - 1]
+                );
             }
             pairingCount++;
         });
@@ -1003,7 +1145,7 @@ class Brain extends Component {
             this.state.nodes.map((node) => {
                 const htmlLink = document.getElementById(node.id).className;
 
-                if (htmlLink === "eller" || htmlLink === "leadvertex") {
+                if (htmlLink === "sidewinder" || htmlLink === "leadvertex") {
                     document.getElementById(node.id).className = "item";
                 }
 
@@ -1051,7 +1193,7 @@ class Brain extends Component {
             this.state.nodes.map((node) => {
                 const htmlLink = document.getElementById(node.id).className;
 
-                if (htmlLink === "eller" || htmlLink === "leadvertex") {
+                if (htmlLink === "binarytree" || htmlLink === "leadvertex") {
                     document.getElementById(node.id).className = "item";
                 }
 
@@ -1102,7 +1244,7 @@ class Brain extends Component {
 
     setTimeout(() => {
       this.setState({ isAlgoInProgress: false });
-      const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
+      const newNodes = updateStateBeforeAlgoStart(this.state.nodes,);
       this.setState({ nodes: newNodes });
 
       this.state.nodes.map((node) => {
@@ -1136,6 +1278,12 @@ class Brain extends Component {
                     startAStarGreedyAlgorithm={this.startAStarGreedyAlgorithm}
                     startBellmanFord={this.startBellmanFord}
                     startClassicGreedy={this.startClassicGreedy}
+                    startIDDFS={this.startIDDFS}
+                    startIDA={this.startIDA}
+                    startWeightedGreedyAlgorithm={
+                        this.startWeightedGreedyAlgorithm
+                    }
+                    // Important utilities
                     updateStateBeforeAlgoStart={this.updateStateBeforeAlgoStart}
                     resetBoard={this.resetBoard}
                     //resetCSS={this.resetCSS}
@@ -1156,44 +1304,86 @@ class Brain extends Component {
                     //States
                     isAlgoInProgress={this.state.isAlgoInProgress}
                     nodes={this.state.nodes}
+                    //IsWeighted ?
+                    isWeighted={this.props.isWeighted}
+                    setIsWeighted={this.props.setIsWeighted}
+                    addResetWeights={this.addResetWeights}
+                    //WhichAlgoIsSelected
+                    updateSelectedAlgo={this.updateSelectedAlgo}
+                    //Open Option Wheel when algo is selected
+                    setOptionWheel={this.setOptionWheel}
+                    // Update the new weight/reward values
+                    setWeightRewardValue={this.setWeightRewardValue}
                 />
-                <div className="grid" draggable={false}>
-                    {nodes.map((node, rowIdx) => {
-                        return (
-                            <Grids
-                                key={node.key}
-                                id={node.id}
-                                node={node}
-                                isStart={node.isStart}
-                                isEnd={node.isEnd}
-                                isWall={node.isWall}
-                                isWeight={node.isWeight}
-                                isShortcut={node.isShortcut}
-                                shortcutValue={node.shortcutValue}
-                                row={node.row}
-                                column={node.column}
-                                weight={node.weight}
-                                heuristic={node.heur}
-                                totalDistance={node.totalDistance}
-                                previousNode={node.previousNode}
-                                isAlgoInProgress={this.state.isAlgoInProgress}
-                                handleMouseDown={(row, column, id) =>
-                                    this.handleMouseDown(row, column, id)
-                                }
-                                handleMouseEnter={(row, column, id) =>
-                                    this.handleMouseEnter(row, column, id)
-                                }
-                                handleMouseUp={() => this.handleMouseUp()}
-                                addWeights={this.addWeights}
-                                addWeightsEnter={this.addWeightsEnter}
-                                addShortcuts={this.addShortcuts}
-                                addShortcutsEnter={this.addShortcutsEnter}
-                                /* handleDragOver={this.handleDragOver}
-                handleDragStart={this.handleDragStart}
-                handleDrop={this.handleDrop}*/
-                            />
-                        );
-                    })}
+
+                <OptionsComponant
+                    isAlgoInProgress={this.state.isAlgoInProgress}
+                    isDiagonal={this.state.isDiagonal}
+                    updateDiagonal={this.updateDiagonal}
+                    isOptionWheelOpen={this.state.isOptionWheelOpen}
+                    isWeighted={this.props.isWeighted}
+                    // For the information componants
+                    //  nodes={this.state.nodes}
+                    whichAlgoIsSelected={this.state.whichAlgoIsSelected}
+                    // IDDFS et IDA*
+                    totalPathCost={this.state.totalPathCost}
+                    visitedCount={this.state.visitedCount}
+                    lastDepthLevel={this.state.lastDepthLevel}
+                    lastThreshold={this.state.lastThreshold}
+                    thresholdCount={this.state.thresholdCount}
+                    // Bellman Ford
+                    relaxationCountBF={this.state.relaxationCountBF}
+                    negativeCycleBF={this.state.negativeCycleBF}
+                />
+
+                <div className="grid">
+                    <AlgoInformation
+                        whichAlgoIsSelected={this.state.whichAlgoIsSelected}
+                    />
+                    <div className="grid__grid2d" draggable={false}>
+                        {nodes.map((node, rowIdx) => {
+                            return (
+                                <Grids
+                                    key={node.key}
+                                    id={node.id}
+                                    node={node}
+                                    isStart={node.isStart}
+                                    isEnd={node.isEnd}
+                                    isWall={node.isWall}
+                                    isWeight={node.isWeight}
+                                    isShortcut={node.isShortcut}
+                                    shortcutValue={node.shortcutValue}
+                                    row={node.row}
+                                    column={node.column}
+                                    weight={node.weight}
+                                    heuristic={node.heur}
+                                    totalDistance={node.totalDistance}
+                                    previousNode={node.previousNode}
+                                    isAlgoInProgress={
+                                        this.state.isAlgoInProgress
+                                    }
+                                    handleMouseDown={(row, column, id) =>
+                                        this.handleMouseDown(row, column, id)
+                                    }
+                                    handleMouseEnter={(row, column, id) =>
+                                        this.handleMouseEnter(row, column, id)
+                                    }
+                                    handleMouseUp={() => this.handleMouseUp()}
+                                    addWeights={this.addWeights}
+                                    addWeightsEnter={this.addWeightsEnter}
+                                    addShortcuts={this.addShortcuts}
+                                    addShortcutsEnter={this.addShortcutsEnter}
+                                    //Is algo weighted or not
+                                    isWeighted={this.props.isWeighted}
+                                    setIsWeighted={this.props.setIsWeighted}
+
+                                    /* handleDragOver={this.handleDragOver}
+                                    handleDragStart={this.handleDragStart}
+                                   handleDrop={this.handleDrop}*/
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         );

@@ -6,36 +6,36 @@ import minPQ from "./utilitityFunctions/MinPQ";
 // A AJOUTER
 
 export default function DFS(
-  start,
-  end,
-  visitedSet = new Set(),
-  adjacencyList = new Map(),
-  positionList = new Map(),
-  shortPath = new Set()
+    start,
+    end,
+    visitedSet = new Set(),
+    adjacencyList = new Map(),
+    positionList = new Map(),
+    shortPath = new Set()
 ) {
-  const first = positionList.get(JSON.stringify([start[0], start[1]]))[1]; //start node
+    const first = positionList.get(JSON.stringify([start[0], start[1]]))[1]; //start node
 
-  const last = positionList.get(JSON.stringify([end[0], end[1]]))[1];
+    const last = positionList.get(JSON.stringify([end[0], end[1]]))[1];
 
-  let stack = [first];
+    let stack = [first];
 
-  DFSR(first, visitedSet, adjacencyList, last);
+    DFSR(first, visitedSet, adjacencyList, last);
 
-  while (stack.length > 0) {
-    const priorityQ = stack.pop();
+    while (stack.length > 0) {
+        const priorityQ = stack.pop();
 
-    if (!visitedSet.has(priorityQ)) {
-      visitedSet.add(priorityQ);
-      if (priorityQ === last) {
-        Array.from(visitedSet).map((element) => {
-          shortPath.add(element);
-        });
+        if (!visitedSet.has(priorityQ)) {
+            visitedSet.add(priorityQ);
+            if (priorityQ === last) {
+                Array.from(visitedSet).map((element) => {
+                    shortPath.add(element);
+                });
 
-        return;
-      }
-    }
+                return;
+            }
+        }
 
-    /*const neighboursOfNode = adjacencyList.get(priorityQ);
+        /*const neighboursOfNode = adjacencyList.get(priorityQ);
 
     for (const node of neighboursOfNode) {
       if (!visitedSet.has(node)) {
@@ -43,30 +43,30 @@ export default function DFS(
       }
     }
   }*/
-  }
+    }
 }
 
 const DFSR = (node, visitedSet, adjacencyList, last) => {
-  if (visitedSet.has(node)) return;
-  visitedSet.add(node);
+    if (visitedSet.has(node)) return;
+    visitedSet.add(node);
 
-  const neighboursOfNode = adjacencyList.get(node);
+    const neighboursOfNode = adjacencyList.get(node);
 
-  for (const neighbour of neighboursOfNode) {
-    if (neighbour === last) return;
-    DFSR(neighbour, visitedSet, adjacencyList);
-  }
+    for (const neighbour of neighboursOfNode) {
+        if (neighbour === last) return;
+        DFSR(neighbour, visitedSet, adjacencyList);
+    }
 };
 
 const DFSR = (node, visitedSet) => {
-  if (visitedSet.has(node)) return;
-  visitedSet.add(node);
+    if (visitedSet.has(node)) return;
+    visitedSet.add(node);
 
-  const neighboursOfNode = adjacencyList.get(node);
+    const neighboursOfNode = adjacencyList.get(node);
 
-  for (const neighbour of neighboursOfNode) {
-    DFSR = (node, visitedSet);
-  }
+    for (const neighbour of neighboursOfNode) {
+        DFSR = (node, visitedSet);
+    }
 };
 
 /* import React from "react";

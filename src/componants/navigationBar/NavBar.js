@@ -13,6 +13,7 @@ import manhattanDistance from "../searchAlgorithms/utilitityFunctions/heuristics
 import diagonalDistance from "../searchAlgorithms/utilitityFunctions/heuristics/DiagonalDistance.js";
 import euclidienDistance from "../searchAlgorithms/utilitityFunctions/heuristics/EuclidienDistance.js";
 import squaredEuclidienDistance from "../searchAlgorithms/utilitityFunctions/heuristics/SquaredEuclideanDistance.js";
+import octileDistance from "../searchAlgorithms/utilitityFunctions/heuristics/OctileDistance.js";
 
 class NavBar extends Component {
     constructor(props) {
@@ -25,8 +26,12 @@ class NavBar extends Component {
     }
 
     setAlgo = (algoName) => {
-        if (algoName.substring(10, 12) === "A*") {
+        if (algoName.includes(" A*")) {
             this.setState({ algoDisplay: "Visualise A*!" });
+            this.setState({ algoName: algoName });
+            this.setState({ selectedAlgo: true });
+        } else if (algoName.includes(" IDA*")) {
+            this.setState({ algoDisplay: "Visualise IDA*!" });
             this.setState({ algoName: algoName });
             this.setState({ selectedAlgo: true });
         } else {
@@ -47,6 +52,9 @@ class NavBar extends Component {
             startAStarGreedyAlgorithm,
             startBellmanFord,
             startClassicGreedy,
+            startIDDFS,
+            startIDA,
+            startWeightedGreedyAlgorithm,
         } = this.props;
 
         //console.log(algoName);
@@ -60,6 +68,9 @@ class NavBar extends Component {
                 break;
             case "Visualise A* avec Distance Euclidienne!":
                 startAStar(euclidienDistance);
+                break;
+            case "Visualise A* avec Distance Octile!":
+                startAStar(octileDistance);
                 break;
             case "Visualise A* avec Distance Euclidienne au Carré!":
                 startAStar(squaredEuclidienDistance);
@@ -76,11 +87,32 @@ class NavBar extends Component {
             case "Visualise Greedy BFS!":
                 startAStarGreedyAlgorithm();
                 break;
+            case "Visualise Weighted Greedy BFS!":
+                startWeightedGreedyAlgorithm();
+                break;
             case "Visualise Basic Greedy!":
                 startClassicGreedy();
                 break;
             case "Visualise Bellman Ford!":
                 startBellmanFord();
+                break;
+            case "Visualise IDDFS!":
+                startIDDFS();
+                break;
+            case "Visualise IDA* avec Distance Manhattan!":
+                startIDA(manhattanDistance);
+                break;
+            case "Visualise IDA* avec Distance Diagonale!":
+                startIDA(diagonalDistance);
+                break;
+            case "Visualise IDA* avec Distance Euclidienne!":
+                startIDA(euclidienDistance);
+                break;
+            case "Visualise IDA* avec Distance Octile!":
+                startIDA(octileDistance);
+                break;
+            case "Visualise IDA* avec Distance Euclidienne au Carré!":
+                startIDA(squaredEuclidienDistance);
                 break;
 
             default:
@@ -93,27 +125,38 @@ class NavBar extends Component {
         const colorSecondary = "#55c57a";
         const colorPrimaryLight2 = "#df506f";
 
-        const styleBackground = this.props.isAlgoInProgress ? colorPrimaryLight2 : colorSecondary;
+        const styleBackground = this.props.isAlgoInProgress
+            ? colorPrimaryLight2
+            : colorSecondary;
 
         //If the launch-button is pink we dont want a green hover over it
-        const hoverState = this.props.isAlgoInProgress ? "side-nav__item--nohover" : "";
-
-        /*const name =
-            this.state.algoDisplay === "Choisis ton algorithme!" ||
-            this.state.algoDisplay === "Visualise Greedy BFS!" ||
-            this.state.algoDisplay === "Visualise Bellman Ford!" ||
-            this.state.algoDisplay === "Visualise Basic Greedy!" ||
-            this.state.algoDisplay === "Visualise Dijkstra!"
-                ? "name"
-                : "algoname";*/
+        const hoverState = this.props.isAlgoInProgress
+            ? "side-nav__item--nohover"
+            : "";
 
         return (
             <nav className="navbar">
                 <ul className="side-nav">
                     <li
-                        className={"side-nav__item side-nav__item--launch-button " + hoverState}
+                        className={
+                            "side-nav__item side-nav__item--launch-button " +
+                            hoverState
+                        }
                         onClick={(e) => {
                             if (!this.props.isAlgoInProgress) {
+                                /*  if (this.props.isWeighted) {
+                                    //Update weigth and rewards
+                                    const weightValue = document.getElementById(
+                                        "rs-range-line-weight"
+                                    ).value;
+                                    const rewardValue = document.getElementById(
+                                        "rs-range-line-reward"
+                                    ).value;
+                                    this.props.setWeightRewardValue(
+                                        +weightValue,
+                                        +rewardValue
+                                    );
+                                }*/
                                 this.algoStart();
                             }
                         }}
@@ -123,7 +166,9 @@ class NavBar extends Component {
                     >
                         <a href="#" className="side-nav__link">
                             <StartButton className="side-nav__icon side-nav__icon--start-button" />
-                            <p className="side-nav__algoname">{this.state.algoDisplay}</p>
+                            <p className="side-nav__algoname">
+                                {this.state.algoDisplay}
+                            </p>
                         </a>
                     </li>
 
@@ -138,17 +183,29 @@ class NavBar extends Component {
                         addHuntAndKillMaze={this.props.addHuntAndKillMaze}
                         addWilsonMaze={this.props.addWilsonMaze}
                         addEllerMaze={this.props.addEllerMaze}
-                        addCellularAutomatonMaze={this.props.addCellularAutomatonMaze}
-                        addRecursiveDivisionMaze={this.props.addRecursiveDivisionMaze}
+                        addCellularAutomatonMaze={
+                            this.props.addCellularAutomatonMaze
+                        }
+                        addRecursiveDivisionMaze={
+                            this.props.addRecursiveDivisionMaze
+                        }
                         addSidewinderMaze={this.props.addSidewinderMaze}
                         addBinaryTreeMaze={this.props.addBinaryTreeMaze}
                         isAlgoInProgress={this.props.isAlgoInProgress}
+                        //ISWEIGHTED OR NOT
+                        setIsWeighted={this.props.setIsWeighted}
+                        addResetWeights={this.props.addResetWeights}
+                        //WhichAlgoIsSelected
+                        updateSelectedAlgo={this.props.updateSelectedAlgo}
+                        //Open Option Wheel When Algo Is Selected
+                        setOptionWheel={this.props.setOptionWheel}
                     />
 
                     <li
                         className="side-nav__item side-nav__item--clear-board"
                         onClick={() => {
-                            if (!this.props.isAlgoInProgress) this.props.resetBoard();
+                            if (!this.props.isAlgoInProgress)
+                                this.props.resetBoard();
                         }}
                     >
                         <a href="#" className="side-nav__link">
@@ -160,7 +217,8 @@ class NavBar extends Component {
                     <li
                         className="side-nav__item side-nav__item--clear-walls"
                         onClick={() => {
-                            if (!this.props.isAlgoInProgress) resetCSS(this.props.nodes);
+                            if (!this.props.isAlgoInProgress)
+                                resetCSS(this.props.nodes);
                         }}
                     >
                         <a href="#" className="side-nav__link">
@@ -170,7 +228,9 @@ class NavBar extends Component {
                     </li>
                 </ul>
 
-                <div class="legal">&copy; 2021 by Ilias Allek. All rights reserved.</div>
+                <div class="legal">
+                    &copy; 2021 by Ilias Allek. All rights reserved.
+                </div>
             </nav>
         );
     }

@@ -15,7 +15,7 @@ export default function Dash() {
 
             <nav className="dash__list">
                 <div className="dash__element" draggable={false}>
-                    <Link to="/">
+                    <Link to="/" className="dash__link">
                         <a href="#" className="btn btn--green btn--router">
                             Game
                         </a>
@@ -23,7 +23,7 @@ export default function Dash() {
                 </div>
 
                 <div className="dash__element">
-                    <Link to="/lore">
+                    <Link to="/lore" className="dash__link">
                         <a href="#" className="btn btn--green btn--router">
                             Lore
                         </a>

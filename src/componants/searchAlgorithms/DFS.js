@@ -35,7 +35,9 @@ export default function DFS(
             let noSolutionCount = 0;
             for (var i = backTrackStack.length - 1; i >= 0; i--) {
                 let deadEndCountBackTrack = 0;
-                const neighboursOfStackNode = adjacencyList.get(backTrackStack[i]);
+                const neighboursOfStackNode = adjacencyList.get(
+                    backTrackStack[i]
+                );
 
                 neighboursOfStackNode.map((neighbour) => {
                     if (!visitedSet.has(neighbour)) {
@@ -75,14 +77,20 @@ export default function DFS(
     while (!tempNode.isStart) {
         shortPath.add(tempNode);
         tempNode = tempNode.previousNode;
-        console.log("dilio");
     }
+
+    // On capture la total distance du final Path
+    const totalDistance = shortPath.size;
+
     shortPath.add(first);
 
     let reversedPath = Array.from(shortPath).reverse();
     shortPath.clear();
 
     reversedPath.map((element, elementIdx) => {
+        if (element.id === last.id) {
+            last.totalDistance = totalDistance;
+        }
         shortPath.add(element);
     });
 }

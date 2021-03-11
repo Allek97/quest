@@ -187,6 +187,42 @@
     }
 }
 
+// IDA + IDDFS animation
+.revisited {
+    outline: none;
+    animation-name: revisitedAnimation;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border: 1px solid rgba(102, 0, 218, 0.75);
+
+    &.weight {
+        background-image: url("../svgs/shield.svg");
+        background-size: 100% 100%;
+    }
+
+    &.shortcut {
+        background-image: url("../svgs/hourglass.svg");
+        background-size: 100% 100%;
+    }
+
+    &.start {
+        background-image: url("../svgs/sworddd.svg"); /*linear-gradient(red, yellow);*/
+        background-color: rgba(0, 190, 218, 0.75);
+        background-size: 100% 100%;
+    }
+
+    &.end {
+        background-image: url("../svgs/crown.svg");
+        background-color: rgba(0, 190, 218, 0.75);
+        background-size: 100% 100%;
+    }
+}
+
 .item-short-path {
     animation-name: shortestPath;
     animation-duration: 1.5s;
@@ -219,6 +255,63 @@
         background-size: 100% 100%;
     }
 }
+
+// IDA* + IDDFS track path
+.topTrack {
+    @include addPathTrack("top");
+}
+.rightTrack {
+    // @include addBeforePathTrack("right");
+    @include addPathTrack("right");
+}
+.bottomTrack {
+    @include addPathTrack("bottom");
+}
+.leftTrack {
+    @include addPathTrack("left");
+}
+.startTrack {
+    &::before {
+        position: absolute;
+        top: 5%;
+        left: 20%;
+
+        height: 2.15rem;
+        width: 2.15rem;
+
+        background-color: rgb(27, 10, 104);
+    }
+}
+
+/*.topTrack {
+    @include addBeforePathTrack("top");
+}
+.rightTrack {
+    @include addBeforePathTrack("right");
+}
+.bottomTrack {
+    @include addBeforePathTrack("bottom");
+}
+.leftTrack {
+    @include addBeforePathTrack("left");
+}
+.topRightTrack {
+    @include addBeforePathTrack("top");
+    @include addAfterPathTrack("right");
+}
+.topLeftTrack {
+    @include addBeforePathTrack("top");
+    @include addAfterPathTrack("left");
+}
+.bottomRightleftTrack {
+    @include addBeforePathTrack("bottom");
+    @include addAfterPathTrack("right");
+}
+.bottomLeftTrack {
+    @include addBeforePathTrack("bottom");
+    @include addAfterPathTrack("left");
+}*/
+//////////////////////////////////////
 
 .huntandkill {
     animation-name: addHuntAndKill;
@@ -277,6 +370,28 @@
     animation-name: addEller;
     animation-duration: 2s;
     animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.sidewinder {
+    animation-name: addSideWinderMaze;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.binarytree {
+    animation-name: addBinaryTreeMaze;
+    animation-duration: 2s;
+    animation-timing-function: linear;
     animation-delay: 0;
     animation-direction: alternate;
     animation-iteration-count: 1;
