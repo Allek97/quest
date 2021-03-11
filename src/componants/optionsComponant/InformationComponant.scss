@@ -99,11 +99,11 @@
         margin-left: 0rem;
     }
     &__depthlevel {
-        margin-left: 7rem;
+        margin-left: 8.5rem;
     }
 
     &__threshold {
-        margin-left: 4rem;
+        margin-left: 5rem;
     }
 
     &__threshold-count {
@@ -113,6 +113,7 @@
     }
 
     &__status {
+        width: 95%;
         background-image: linear-gradient(to right, #070957 30%, #083b06 75%);
     }
 }

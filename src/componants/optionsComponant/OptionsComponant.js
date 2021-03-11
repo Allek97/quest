@@ -20,6 +20,7 @@ export default function OptionsComponant(props) {
     const openingOptionStyle = "optionStart 0.4s ease-in";
 
     isOptionBoxOpen = useDelayUnmount(isMounted, 300);
+    //isOptionBoxOpen = true;
 
     // All the props from Brain
     const {
@@ -235,9 +236,9 @@ export default function OptionsComponant(props) {
                         </div>
                     </div>
                 </div>
-                <div className="informations">
-                    <h3 className="informations__title">Informations</h3>
-                    {/* <InformationComponant
+
+                {
+                    <InformationComponant
                         // IDDFS et IDA*
                         whichAlgoIsSelected={props.whichAlgoIsSelected}
                         totalPathCost={props.totalPathCost}
@@ -248,8 +249,8 @@ export default function OptionsComponant(props) {
                         //Bellman Ford
                         relaxationCountBF={props.relaxationCountBF}
                         negativeCycleBF={props.negativeCycleBF}
-                   />*/}
-                </div>
+                    />
+                }
             </div>
         </div>
     );
