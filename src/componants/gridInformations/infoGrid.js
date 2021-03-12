@@ -56,7 +56,7 @@ export default function InfoGrid(props) {
                     ? LegendList(isMounted, animateMount, props.isWeighted)
                     : null}
             </nav>
-            {/*<Tutorial />*/}
+            <Tutorial />
         </div>
     );
 }
