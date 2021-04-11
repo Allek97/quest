@@ -196,7 +196,7 @@ export default function AlgoInformation(props) {
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
-                            la distance de Manhattan
+                            La distance de Manhattan
                         </span>
                         selectionnée est une heuristique{" "}
                         <span className="heading__complement">admissible</span>{" "}
@@ -228,7 +228,7 @@ export default function AlgoInformation(props) {
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
-                            la distance Diagonale
+                            La distance Diagonale
                         </span>
                         selectionnée est une heuristique{" "}
                         <span className="heading__complement">admissible</span>{" "}
@@ -260,7 +260,7 @@ export default function AlgoInformation(props) {
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
-                            la distance Octile
+                            La distance Octile
                         </span>
                         selectionnée est une heuristique{" "}
                         <span className="heading__complement">admissible</span>{" "}
@@ -293,7 +293,7 @@ export default function AlgoInformation(props) {
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
-                            la distance Euclidienne au Carré
+                            La distance Euclidienne au Carré
                         </span>
                         selectionnée est une heuristique qui{" "}
                         <span className="heading__complement">

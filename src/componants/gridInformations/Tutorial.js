@@ -18,8 +18,8 @@ export default function Tutorial(params) {
         animation: "tutorialDisappear 1s cubic-bezier(0.86, 0, 0.07, 1) 1",
     };
 
-    // isTutoOpen = useDelayUnmount(isMount, 1000);
-    isTutoOpen = true;
+    isTutoOpen = useDelayUnmount(isMount, 1000);
+    //isTutoOpen = true;
 
     return (
         <>
@@ -48,10 +48,24 @@ export default function Tutorial(params) {
                 <div className="introduction">
                     <span className="introduction__logo"></span>
                     <span className="introduction__marker">1/9</span>
-                    <h3 className="introduction__heading">Quest</h3>
+                    <h1 className="introduction__heading">Quest</h1>
                     <h2 className="introduction__text-1">
                         Bravez les obstacles pour sauver la princesse
                     </h2>
+                    <h2 className="introduction__text-1">
+                        NOTE:LUXURY HOUSE RENTING
+                    </h2>
+                    <h2 className="introduction__text-1">
+                        NOTE: FAIRE UN REPERTOIRE DE TOUT LES LIEUX HISTORIQUE
+                        DANS LE MONDE AVEC UNE BELLE INTERFACE + MAP + LOGIN +
+                        REVIEW + ETC... NOTE: CREER UN HOOK POUR EMPECHER LE
+                        USER DE CLICKER SUR LE BUTTON LORE(CHANGER DE ROUTER)
+                        PENDANT QUE L'ALGO EST ENTRAIN DE ROULER
+                    </h2>
+                    <h2 className="introduction__text-1">
+                        NOTE: https://rapidapi.com/blog/most-popular-api/
+                    </h2>
+
                     <a
                         className="introduction__button btn btn--violet"
                         href="#explanation"
