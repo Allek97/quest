@@ -106,7 +106,7 @@ export default function InformationComponant(props) {
         }
 
         //Cout total du path
-        if (totalPathCost !== Infinity) {
+        if (totalPathCost !== Infinity && totalPathCost) {
             const roundedTotalPathCost = totalPathCost.toFixed(2);
             document.getElementById(
                 "pathcost"

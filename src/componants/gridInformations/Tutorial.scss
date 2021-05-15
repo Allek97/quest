@@ -97,10 +97,7 @@
     transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1); //easings.net
 
     border-radius: 50%;
-    background-image: radial-gradient(
-        var(--color-quaternary),
-        var(--color-quaternary-light)
-    );
+    background-image: linear-gradient(176deg, #8f17c275 24%, #5056fa81 70%);
 
     overflow: hidden;
 
@@ -165,7 +162,7 @@
     justify-content: center;
     align-items: center;
 
-    height: 100%;
+    height: 77.5rem;
     padding: 0;
     background-image: linear-gradient(
             to right bottom,
@@ -241,7 +238,7 @@
     &__button {
         position: absolute !important;
         bottom: 15rem;
-        z-index: 1000000;
+        z-index: 1;
 
         display: flex;
 
@@ -269,7 +266,7 @@
     justify-content: center;
     align-items: center;
 
-    height: 100%;
+    height: 77.5rem;
     margin-top: -15%;
 
     color: rgba(#ffffff, 0.8);
@@ -339,8 +336,10 @@
 }
 
 //////////////////////////
-// Troisieme slide : But
+// 3eme/4eme slide : But and application
 
+.theory,
+.application,
 .goal {
     position: relative;
     z-index: 12;
@@ -349,8 +348,8 @@
     flex-direction: column;
     align-items: center;
 
-    height: 106%;
-    margin-top: -15%;
+    height: 82rem;
+    margin-top: -16.4rem;
 
     color: rgba(#ffffff, 0.8);
 
@@ -376,8 +375,8 @@
     &__heading {
         transition: all 0.2s;
 
-        width: 85%;
-        margin-top: 15%;
+        width: 65%;
+        margin-top: 14.4rem;
 
         font-size: 4rem;
         font-weight: 700;
@@ -414,7 +413,7 @@
         width: 60%;
         //margin-top: -8%;
 
-        font-size: 1.4rem;
+        font-size: 1.45rem;
         font-weight: 700;
         text-transform: none;
         letter-spacing: 0.1rem;
@@ -448,6 +447,7 @@
         }
 
         &--2 {
+            order: -1;
             box-shadow: var(--shadow-dark);
             height: 30rem;
             width: 30rem;
@@ -472,30 +472,17 @@
 }
 
 //////////////////////
-// Quatrieme section : Functionalités
+// 4eme section: application
 
-/*  &__container {
-        margin-top: 10rem;
+.application {
+    margin-top: 0;
 
-        display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: 1fr 2fr;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-        grid-template-areas:
-            "main picture"
-            "secondary picture";
+    height: 120%;
 
-        grid-gap: 3rem;
+    &__heading {
+        margin-top: 4rem;
     }
-
-    &__main {
-        grid-area: main;
-    }
-
-    &__secondary {
-        grid-area: secondary;
-    }
-
-    &__pictures {
-        grid-area: picture;
-    }*/
+}

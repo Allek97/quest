@@ -41,8 +41,6 @@ import OptionsComponant from "./optionsComponant/OptionsComponant";
 import fillGridWithWalls from "./untilityFunctionsBrain/FillGridWithWalls";
 import emptyGrid from "./untilityFunctionsBrain/EmptyGrid";
 
-import Draggable, { DraggableCore } from "react-draggable";
-
 import {
     BFS,
     DFS,

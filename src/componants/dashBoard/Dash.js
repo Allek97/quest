@@ -15,19 +15,18 @@ export default function Dash() {
 
             <nav className="dash__list">
                 <div className="dash__element" draggable={false}>
-                    <Link to="/" className="dash__link">
-                        <a href="#" className="btn btn--green btn--router">
-                            Game
-                        </a>
-                    </Link>
+                    <a href="/" className="btn btn--modern-green btn--router">
+                        Game
+                    </a>
                 </div>
 
                 <div className="dash__element">
-                    <Link to="/lore" className="dash__link">
-                        <a href="#" className="btn btn--green btn--router">
-                            Lore
-                        </a>
-                    </Link>
+                    <a
+                        href="/lore"
+                        className="btn btn--modern-green btn--router"
+                    >
+                        Lore
+                    </a>
                 </div>
             </nav>
         </header>

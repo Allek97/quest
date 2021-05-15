@@ -122,8 +122,8 @@ class NavBar extends Component {
 
     render() {
         // VOIR ROOT POUR LES COULEURS
-        const colorSecondary = "#55c57a";
-        const colorPrimaryLight2 = "#df506f";
+        const colorSecondary = "#09c199";
+        const colorPrimaryLight2 = "#bb2727";
 
         const styleBackground = this.props.isAlgoInProgress
             ? colorPrimaryLight2

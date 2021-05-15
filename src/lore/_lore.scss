@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
+
+.lore {
+    position: relative;
+
+    &__logo {
+        background-image: linear-gradient(to right, white, white);
+        mask-image: url("../img/favicon.png");
+        mask-size: cover;
+        mask-position: center;
+    }
+}
+
+.header {
+    position: relative;
+
+    height: 77vh;
+
+    background-image: linear-gradient(
+            76deg,
+            rgba(2, 15, 31, 0.6),
+            rgba(15, 13, 46, 0.8)
+        ),
+        url(../img/dragon_on_castle.jpg);
+    background-size: cover;
+    background-position: 50% 20%;
+
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+.mainlore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 0 25%;
+}

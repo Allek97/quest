@@ -34,41 +34,53 @@
 
 @keyframes addWalls {
     0% {
-        //  transform: scale(0.5);
-        background-color: rgb(37, 82, 102);
+        // transform: scale(0.5);
+        // background-image: linear-gradient(76deg, rgb(20, 52, 94), #1d1961);
+        // background-image: linear-gradient(76deg, #020f1f, #0f0d2e);
+        background-color: #020f1f;
     }
 
     25% {
         transform: scale(1.1);
-        background-color: rgb(31, 72, 90);
+        // background-image: linear-gradient(76deg, #061a31, #171449);
     }
 
-    75% {
-        transform: scale(0.98);
-        background-color: rgb(27, 65, 82);
-        background: rgb(16, 46, 131);
+    50% {
+        // background-image: linear-gradient(76deg, #061a31, #171449);
+        // background-image: linear-gradient(76deg, #061a31, #171449);
+        // background-color: #15123f;
+        background-color: #17134e;
     }
+
+    // 75% {
+    //     // transform: scale(0.98);
+    //     // background-image: linear-gradient(76deg, #020f1f, #0f0d2e);
+    //     background-color: #020f1f;
+    // }
 
     100% {
         transform: scale(1);
-        background-color: rgb(12, 53, 71);
+        // background-image: linear-gradient(76deg, #020f1f, #0f0d2e);
+        background-color: #020f1f;
     }
 }
 
 @keyframes addWallsAnimation {
     0% {
-        transform: scale(0.3);
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
+    }
+
+    25% {
+        transform: scale(1.1);
     }
 
     50% {
-        transform: scale(1.2);
-        background-color: rgb(12, 53, 71);
-        background: rgb(16, 46, 131);
+        background-color: #17134e;
     }
+
     100% {
         transform: scale(1);
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
 }
 
@@ -291,13 +303,13 @@
 
 @keyframes addWallScan1 {
     from {
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
     50% {
         background-color: rgb(171, 173, 24);
     }
     100% {
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
 }
 
@@ -315,13 +327,13 @@
 
 @keyframes addWallScan2 {
     from {
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
     50% {
         background-color: rgb(171, 173, 24);
     }
     100% {
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
 }
 
@@ -389,23 +401,21 @@
 @keyframes addRecursiveDivision {
     0% {
         transform: scale(1.2);
-        background-color: rgb(37, 82, 102);
+        background-color: #020f1f;
     }
 
     25% {
         transform: scale(1.1);
-        background-color: rgb(31, 72, 90);
     }
 
-    75% {
+    50% {
         transform: scale(0.98);
-        background-color: rgb(27, 65, 82);
-        background: rgb(16, 46, 131);
+        background-color: #17134e;
     }
 
     100% {
         transform: scale(1);
-        background-color: rgb(12, 53, 71);
+        background-color: #020f1f;
     }
 }
 

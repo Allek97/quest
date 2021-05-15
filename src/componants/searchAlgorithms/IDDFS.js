@@ -104,6 +104,7 @@ export default function IDDFS(
         shortPath.add(element);
     });
 }
+// Nos fontions
 
 const neighbourWithSmallestDepth = (neighboursOfNode, verticesDepth) => {
     let neighboursDepth = new Map();

@@ -19,7 +19,7 @@ $greyText: #b3b3b3;
 //NAVBAR
 
 .navbar {
-    background-color: rgb(12, 53, 71);
+    background-image: linear-gradient(76deg, #020f1f, #0f0d2e);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -133,7 +133,7 @@ $greyText: #b3b3b3;
 .algo-nav,
 .maze-nav,
 .astar-nav {
-    background-color: rgb(12, 53, 71);
+    background-image: linear-gradient(76deg, #020f1f, #0f0d2e);
     //height: 44rem;
     width: 22.8rem;
 

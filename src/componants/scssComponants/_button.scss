@@ -112,6 +112,18 @@
         }
     }
 
+    &--modern-green {
+        background: var(--color-green);
+        // background: -webkit-linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
+        //  background: -o-linear-gradient(119deg, #b224ef 11%, #5055fa 55%);
+
+        color: $color-white;
+
+        &::after {
+            background: var(--color-green);
+        }
+    }
+
     &--animated {
         animation: moveInBottom 0.5s ease-out 0.75s;
         animation-fill-mode: backwards;

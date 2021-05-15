@@ -10,16 +10,17 @@ import InfoGrid from "./componants/gridInformations/InfoGrid";
 
 export default function App(params) {
     const [isWeighted, setIsWeighted] = useState(true);
+    // const [isAlgoRunning,setIsAlgoRunning] = useState(false);
 
     return (
         <Router>
             <div className="App">
-                <Dash />
                 <Route
                     exact
                     path="/"
                     render={(props) => (
                         <React.Fragment>
+                            <Dash />
                             <InfoGrid isWeighted={isWeighted} />
                             <Brain
                                 isWeighted={isWeighted}

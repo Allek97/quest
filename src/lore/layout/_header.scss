@@ -1,4 +1,11 @@
+.lore {
+    padding: 0 3rem;
+}
+
 .header {
+    height: 90vh;
+    background-color: orangered;
+
     background-image: linear-gradient(
             to right bottom,
             rgba(rgb(104, 102, 16), 0.5),
@@ -29,14 +36,3 @@
         text-align: center;
     }
 }
-
-/*
-rgba(rgb(104, 102, 16), 0.5),
-      rgba(rgb(0, 0, 0), 0.5)
-
-*/
-
-/*
-rgba(rgba(0, 0, 255, 0.582), 0.5),
-      rgba(blue, 0.5)
-      */

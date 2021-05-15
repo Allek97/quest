@@ -66,7 +66,7 @@ export default function SubNav(props) {
         isOpen3 || isOpen4 ? "astar-list" : "astar-list astar-list--closed";
 
     //VOIR ROOT POUR LES COULEURS
-    const colorSecondary = "#55c57a";
+    const colorSecondary = "#09c199";
 
     /*{isOpen1 === true ? <AStarList /> : null}*/
 

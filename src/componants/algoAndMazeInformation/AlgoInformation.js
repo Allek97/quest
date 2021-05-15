@@ -172,7 +172,7 @@ export default function AlgoInformation(props) {
                         </span>
                         L'implementation de l'algorithme dans un graph
                         <span className="heading__complement">
-                            non-orienteé (undirected) ne garantit pas
+                            non-orienté (undirected) ne garantit pas
                         </span>
                         le chemin optimal.
                     </p>
@@ -192,7 +192,7 @@ export default function AlgoInformation(props) {
                         <span className="heading__complement">pondéré.</span>
                         L'implementation de l'algorithme dans un graph
                         <span className="heading__complement">
-                            non-orienteé (undirected) ne garantit pas
+                            non-orienté (undirected) ne garantit pas
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
@@ -224,7 +224,7 @@ export default function AlgoInformation(props) {
                         <span className="heading__complement">pondéré.</span>
                         L'implementation de l'algorithme dans un graph
                         <span className="heading__complement">
-                            non-orienteé (undirected) ne garantit pas
+                            non-orienté (undirected) ne garantit pas
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
@@ -256,7 +256,7 @@ export default function AlgoInformation(props) {
                         <span className="heading__complement">pondéré.</span>
                         L'implementation de l'algorithme dans un graph
                         <span className="heading__complement">
-                            non-orienteé (undirected) ne garantit pas
+                            non-orienté (undirected) ne garantit pas
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
@@ -289,7 +289,7 @@ export default function AlgoInformation(props) {
                         <span className="heading__complement">pondéré.</span>
                         L'implementation de l'algorithme dans un graph
                         <span className="heading__complement">
-                            non-orienteé (undirected) ne garantit pas
+                            non-orienté (undirected) ne garantit pas
                         </span>
                         le chemin optimal.
                         <span className="heading__complement">
