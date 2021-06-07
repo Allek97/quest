@@ -20,7 +20,7 @@ export default function aStar(
 
     let priorityQ = new Map(); // Va contenir notre minPQ
 
-    //On me le premier node start dans le visitedSet
+    //On met le premier node start dans le visitedSet
     first.previousNode = first;
     first.totalDistance = 0;
     first.heuristic = 0;
@@ -71,13 +71,6 @@ export default function aStar(
     }
 
     let tempNode = Array.from(visitedSet).pop();
-
-    /* visitedSet.forEach((element) => {
-    let h = manhattanDistance(element, last);
-    console.log(
-      "row : " + element.row + "; column : " + element.column + " h : " + h
-    );
-  });*/
 
     while (!tempNode.isStart) {
         shortPath.add(tempNode);

@@ -106,21 +106,6 @@ export class Grids extends Component {
                         handleMouseUp();
                     }
                 }}
-                /* draggable={isStart ? true : false}
-        onDragOver={(e) => handleDragOver(e)}
-        onDragStart={(e) => {
-          console.log("I started DRAGGING");
-          handleMouseUp();
-          this.setPermession();
-          //this.setState({ permession: false });
-          handleDragStart(e, id);
-        }}
-        onDrop={(e) => {
-          console.log(this.state.permession);
-          handleMouseUp();
-          //this.setPermession();
-          handleDrop(e, id, row, column);
-        }}*/
             ></div>
         );
     }
