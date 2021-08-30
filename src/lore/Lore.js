@@ -9,6 +9,7 @@ import "./base/_typography.scss";
 import Comparing from "./components/Comparing";
 import CodeDisplay from "./components/CodeDisplay";
 import Example from "./components/Example";
+import Footer from "./components/Footer";
 // Images
 
 const Header = styled.div`
@@ -631,6 +632,7 @@ export default function Lore() {
                     </section>
                 </main>
             </div>
+            <Footer />
         </div>
     );
 }
