@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { ReactComponent as Information } from "../../svgs/info-icon.svg";
+// import { ReactComponent as Information } from "../../svgs/info-icon.svg";
 
 import "./AlgoInformation.scss";
 

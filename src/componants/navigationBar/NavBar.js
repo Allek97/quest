@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import SubNav from "./SubNav.js";
@@ -164,7 +166,7 @@ class NavBar extends Component {
                             backgroundColor: styleBackground,
                         }}
                     >
-                        <a href="#" className="side-nav__link">
+                        <a href="javascript:void(0)" className="side-nav__link">
                             <StartButton className="side-nav__icon side-nav__icon--start-button" />
                             <p className="side-nav__algoname">
                                 {this.state.algoDisplay}
@@ -208,7 +210,7 @@ class NavBar extends Component {
                                 this.props.resetBoard();
                         }}
                     >
-                        <a href="#" className="side-nav__link">
+                        <a href="javascript:void(0)" className="side-nav__link">
                             <CrossedSwords className="side-nav__icon" />
                             Clear Board
                         </a>
@@ -221,7 +223,7 @@ class NavBar extends Component {
                                 resetCSS(this.props.nodes);
                         }}
                     >
-                        <a href="#" className="side-nav__link">
+                        <a href="javascript:void(0)" className="side-nav__link">
                             <Catapult className="side-nav__icon" />
                             Clear Path & Tracks
                         </a>

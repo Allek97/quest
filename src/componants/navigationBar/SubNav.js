@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { useRef, useEffect } from "react";
@@ -90,7 +92,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Breath-First Search
                 </a>
             </li>
@@ -107,7 +109,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Depth-First Search
                 </a>
             </li>
@@ -124,7 +126,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Dijkstra Algorithme
                 </a>
             </li>
@@ -140,7 +142,7 @@ export default function SubNav(props) {
                     color: isOpen3 === true ? "white" : "",
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     A* Algorithme
                     <nav className="astar-nav">
                         {isOpen3 && (
@@ -171,7 +173,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     BellmanFord
                 </a>
             </li>
@@ -188,7 +190,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     IDDFS
                 </a>
             </li>
@@ -205,7 +207,7 @@ export default function SubNav(props) {
                     color: isOpen4 === true ? "white" : "",
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     IDA*
                     <nav className="astar-nav">
                         {isOpen4 && (
@@ -237,7 +239,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Greedy BFS
                 </a>
             </li>
@@ -255,7 +257,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Weighted Greedy BFS
                 </a>
             </li>
@@ -271,7 +273,7 @@ export default function SubNav(props) {
                     }
                 }}
             >
-                <a href="#" className="algo-list__link">
+                <a href="javascript:void(0)" className="algo-list__link">
                     Basic Greedy Algorithm
                 </a>
             </li>
@@ -308,7 +310,7 @@ export default function SubNav(props) {
                     props.setOptionWheel(true);
                 }}
             >
-                <a href="#" className="astar-list__link">
+                <a href="javascript:void(0)" className="astar-list__link">
                     Distance de Manhattan
                 </a>
             </li>
@@ -336,7 +338,7 @@ export default function SubNav(props) {
                     props.setOptionWheel(true);
                 }}
             >
-                <a href="#" className="astar-list__link">
+                <a href="javascript:void(0)" className="astar-list__link">
                     Distance Diagonale
                 </a>
             </li>
@@ -365,7 +367,7 @@ export default function SubNav(props) {
                         props.setOptionWheel(true);
                     }}
                 >
-                    <a href="#" className="astar-list__link">
+                    <a href="javascript:void(0)" className="astar-list__link">
                         Distance Euclidienne
                     </a>
                 </li>
@@ -394,7 +396,7 @@ export default function SubNav(props) {
                     props.setOptionWheel(true);
                 }}
             >
-                <a href="#" className="astar-list__link">
+                <a href="javascript:void(0)" className="astar-list__link">
                     Distance Octile
                 </a>
             </li>
@@ -422,7 +424,7 @@ export default function SubNav(props) {
                     props.setOptionWheel(true);
                 }}
             >
-                <a href="#" className="astar-list__link">
+                <a href="javascript:void(0)" className="astar-list__link">
                     Distance Euclidienne au carrée
                 </a>
             </li>
@@ -440,7 +442,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addBacktrackingMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Recursive Backtracking Maze
                 </a>
             </li>
@@ -450,7 +452,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addKruskalMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Kruskal's Algorithm Maze
                 </a>
             </li>
@@ -460,7 +462,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addPrimMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Prim's Algorithm Maze
                 </a>
             </li>
@@ -470,7 +472,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addAldousBroderMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Aldous Broder Algorithm Maze
                 </a>
             </li>
@@ -480,7 +482,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addGrowingTreeMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Growing Tree Algorithm Maze
                 </a>
             </li>
@@ -490,7 +492,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addHuntAndKillMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Hunt and Kill Algorithm Maze
                 </a>
             </li>
@@ -500,7 +502,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addWilsonMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Wilson Algorithm Maze
                 </a>
             </li>
@@ -510,7 +512,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addEllerMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Eller Algorithm Maze
                 </a>
             </li>
@@ -521,7 +523,7 @@ export default function SubNav(props) {
                         props.addRecursiveDivisionMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Recursive Division Maze
                 </a>
             </li>
@@ -531,7 +533,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addSidewinderMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Sidewinder Algorithm Maze
                 </a>
             </li>
@@ -541,7 +543,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addBinaryTreeMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Binary Tree Maze
                 </a>
             </li>
@@ -551,7 +553,7 @@ export default function SubNav(props) {
                     if (!props.isAlgoInProgress) props.addRandomMaze();
                 }}
             >
-                <a href="#" className="maze-list__link">
+                <a href="javascript:void(0)" className="maze-list__link">
                     Random Maze generator
                 </a>
             </li>
@@ -576,7 +578,7 @@ export default function SubNav(props) {
                     backgroundColor: isOpen1 === true ? colorSecondary : "",
                 }}
             >
-                <a href="#" className="side-nav__link">
+                <a href="javascript:void(0)" className="side-nav__link">
                     <AlgoIcon className="side-nav__icon" />
                     Algorithms
                     <span className="side-nav__arrow-container">
@@ -610,7 +612,7 @@ export default function SubNav(props) {
                     backgroundColor: isOpen2 === true ? colorSecondary : "",
                 }}
             >
-                <a href="#" className="side-nav__link">
+                <a href="javascript:void(0)" className="side-nav__link">
                     <Maze className="side-nav__icon" />
                     Mazes & Patterns
                     <span className="side-nav__arrow-container">

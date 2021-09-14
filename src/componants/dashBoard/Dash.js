@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Dash.scss";
 import { Link } from "react-router-dom";
 
@@ -15,18 +15,18 @@ export default function Dash() {
 
             <nav className="dash__list">
                 <div className="dash__element" draggable={false}>
-                    <a href="/" className="btn btn--modern-green btn--router">
+                    <Link to="/" className="btn btn--modern-green btn--router">
                         Game
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="dash__element">
-                    <a
-                        href="/lore"
+                    <Link
+                        to="/lore"
                         className="btn btn--modern-green btn--router"
                     >
                         Lore
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </header>

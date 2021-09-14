@@ -1,4 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 
 import useDelayUnmount from "../utilityComponants/UseDelayUnmount";
 
@@ -56,7 +58,7 @@ export default function Tutorial(params) {
 
                     <a
                         className="introduction__button btn btn--violet"
-                        href="#explanation"
+                        href="javascript:void(0)"
                     >
                         tutoriel
                         <span

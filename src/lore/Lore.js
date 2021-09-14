@@ -10,6 +10,7 @@ import Comparing from "./components/Comparing";
 import CodeDisplay from "./components/CodeDisplay";
 import Example from "./components/Example";
 import Footer from "./components/Footer";
+import { Link } from "react-router-dom";
 // Images
 
 const Header = styled.div`
@@ -28,7 +29,7 @@ const Header = styled.div`
     transform: translateX(-50.1%);
 
     background-color: ${(props) =>
-        props.isScrolled ? "rgba(15, 13, 46, 1)" : "transparent"};
+        props.isscrolled ? "rgba(15, 13, 46, 1)" : "transparent"};
 
     font-family: circular-book;
     font-size: 1.75rem;
@@ -40,14 +41,14 @@ const Logo = styled.span`
 
     transition: all 0.3s linear;
 
-    height: ${(props) => (props.isScrolled ? "6.5rem" : "6rem")};
-    width: ${(props) => (props.isScrolled ? "6.5rem" : "6rem")};
+    height: ${(props) => (props.isscrolled ? "6.5rem" : "6rem")};
+    width: ${(props) => (props.isscrolled ? "6.5rem" : "6rem")};
 
     background-image: linear-gradient(76deg, rgba(2, 15, 31, 1), #0e0a49);
     background-image: linear-gradient(
         76deg,
-        ${(props) => (props.isScrolled ? "white" : "rgba(2, 15, 31, 1)")},
-        ${(props) => (props.isScrolled ? "white" : "#0e0a49")}
+        ${(props) => (props.isscrolled ? "white" : "rgba(2, 15, 31, 1)")},
+        ${(props) => (props.isscrolled ? "white" : "#0e0a49")}
     );
 
     mask-image: url(${(props) => props.img});
@@ -55,7 +56,7 @@ const Logo = styled.span`
     mask-position: center;
 `;
 
-const LoreBtn = styled.a`
+const LoreBtn = styled(Link)`
     &,
     &:link,
     &:visited {
@@ -65,11 +66,11 @@ const LoreBtn = styled.a`
 
         transition: background-color 0.3s linear, padding 0.3s linear;
 
-        padding: ${(props) => (props.isScrolled ? "3rem" : "3.5rem")} 5.5rem;
+        padding: ${(props) => (props.isscrolled ? "3rem" : "3.5rem")} 5.5rem;
 
         /* border-radius: 10rem; */
         border: none;
-        color: ${(props) => (props.isScrolled ? "#b3defd" : "white")};
+        color: ${(props) => (props.isscrolled ? "#b3defd" : "white")};
 
         text-transform: uppercase;
         text-decoration: none;
@@ -82,7 +83,7 @@ const LoreBtn = styled.a`
         transition: background-color 0.3s linear;
 
         background-color: ${(props) =>
-            props.isScrolled
+            props.isscrolled
                 ? "rgba(4, 73, 122, 0.25)"
                 : "rgba(0, 0, 0, 0.25)"};
     }
@@ -272,7 +273,7 @@ reversedPath.map((element, elementIdx) => {
 export default function Lore() {
     const loreLogo = require("../img/favicon.png");
 
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isscrolled, setIsScrolled] = useState(false);
 
     const listenScrollEvent = (event) => {
         if (window.scrollY > 0) {
@@ -291,8 +292,8 @@ export default function Lore() {
 
     return (
         <div className="lore">
-            <Header isScrolled={isScrolled}>
-                <Logo img={loreLogo} isScrolled={isScrolled} />
+            <Header isscrolled={isscrolled}>
+                <Logo img={loreLogo} isscrolled={isscrolled} />
 
                 <nav
                     style={{
@@ -302,20 +303,20 @@ export default function Lore() {
                     }}
                 >
                     <div draggable={false}>
-                        <LoreBtn href="/" isScrolled={isScrolled}>
+                        <LoreBtn to="/" isscrolled={isscrolled}>
                             Game
                         </LoreBtn>
                     </div>
 
                     <div>
                         <LoreBtn
-                            href="/lore"
+                            to="/lore"
                             style={{
-                                backgroundColor: isScrolled
+                                backgroundColor: isscrolled
                                     ? "rgba(4, 73, 122, 0.25)"
                                     : "rgba(0, 0, 0, 0.25)",
                             }}
-                            isScrolled={isScrolled}
+                            isscrolled={isscrolled}
                         >
                             Lore
                         </LoreBtn>

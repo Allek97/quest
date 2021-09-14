@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import useDelayUnmount from "../utilityComponants/UseDelayUnmount";
 
@@ -34,7 +34,6 @@ export default function InfoGrid(props) {
         <div className="info-container">
             <div className="compo">
                 <a
-                    href="#"
                     className={isLegendOpen ? "compo__open" : "compo__closed"}
                     onClick={() => {
                         setLegendOpen(!isLegendOpen);
