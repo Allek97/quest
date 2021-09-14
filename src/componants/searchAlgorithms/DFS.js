@@ -72,8 +72,6 @@ export default function DFS(
 
     let tempNode = last;
 
-    console.log(last.previousNode);
-
     while (!tempNode.isStart) {
         shortPath.add(tempNode);
         tempNode = tempNode.previousNode;

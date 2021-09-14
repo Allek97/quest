@@ -1,9 +1,7 @@
 document.querySelector("#sprite");
 const symbols = sprite.querySelectorAll("symbol");
 
-console.log("pute");
 symbols.forEach((symbol) => {
-    console.log(symbol.id);
     document.body.insertAdjacentHTML(
         "beforeend",
         `

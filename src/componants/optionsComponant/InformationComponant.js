@@ -168,7 +168,7 @@ export default function InformationComponant(props) {
         //Bellman Ford relaxation + status
         if (whichAlgoIsSelected.includes("Bellman Ford")) {
             //lastThreshold
-            console.log(relaxationCountBF);
+
             if (relaxationCountBF !== Infinity) {
                 document.getElementById(
                     "relaxation"

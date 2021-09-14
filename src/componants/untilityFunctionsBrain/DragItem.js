@@ -77,7 +77,6 @@ export default function dragItem(nodes, id, itemName, whichAlgoRunning) {
       }
     }, 0);*/
     } else if (itemName === "princess") {
-        console.log("testing");
         if (htmlDraggedLink.includes("start")) {
             return;
         }

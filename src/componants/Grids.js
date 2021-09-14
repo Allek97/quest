@@ -65,7 +65,6 @@ export class Grids extends Component {
                 className={extraClassName}
                 ref={this.myRef}
                 onMouseDown={(e) => {
-                    //console.log(isAlgoInProgress);
                     if (!isAlgoInProgress) {
                         if (e.altKey && isWeighted) {
                             addWeights(row, column);
@@ -95,7 +94,6 @@ export class Grids extends Component {
                             !e.altKey &&
                             !e.ctrlKey
                         ) {
-                            //console.log(id);
                             handleMouseEnter(row, column, id);
                         }
                     }

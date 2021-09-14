@@ -57,7 +57,6 @@ export default function sidewinderMaze(nodes, visitedMazeCells = new Map()) {
                         currentRunSet.add(eastNeighbour);
                     }
                 } else {
-                    console.log(currentRunSet);
                     const choosenCellToCarveNorth = getRandomKey(currentRunSet);
                     wallsDestroyed(
                         choosenCellToCarveNorth,

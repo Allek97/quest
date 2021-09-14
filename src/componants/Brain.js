@@ -166,7 +166,6 @@ class Brain extends Component {
             const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
             this.setState({ nodes: newNodes });
         } else if (htmlLink.includes("end")) {
-            console.log("asd");
             this.setState({ princessGettingDragged: true });
             const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
             this.setState({ nodes: newNodes });
@@ -176,7 +175,6 @@ class Brain extends Component {
     };
 
     handleMouseEnter = (row, col, id) => {
-        //console.log("isPressed ? : " + this.state.isPressed);
         if (
             !this.state.isPressed &&
             !this.state.knightGettingDragged &&
@@ -210,7 +208,6 @@ class Brain extends Component {
 
         const newNodes = updateStateBeforeAlgoStart(this.state.nodes);
         this.setState({ nodes: newNodes });
-        // console.log("Mouse UP ? : " + this.state.isPressed);
     };
 
     addWeights = (row, col) => {
@@ -311,7 +308,6 @@ class Brain extends Component {
         const totalPathCost = informationPackage[0];
         const lastThreshold = informationPackage[1];
         const thresholdCount = informationPackage[2];
-        console.log(thresholdCount);
 
         this.setState({
             isAlgoInProgress: true,
@@ -376,8 +372,6 @@ class Brain extends Component {
         const totalPathCost = informationPackage[0];
         const relaxationCountBF = informationPackage[1];
         const negativeCycleBF = informationPackage[2];
-
-        console.log(relaxationCountBF);
 
         this.setState({
             isAlgoInProgress: true,
@@ -764,8 +758,6 @@ class Brain extends Component {
 
         aldousBroderMaze(this.state.nodes, visitedMazeCells, visitedVertexList);
         const visitedTimeLength = (visitedVertexList.length + 1) * 5 + 3000;
-
-        console.log(visitedTimeLength);
 
         setTimeout(() => {
             let newNodes = updateStateBeforeAlgoStart(this.state.nodes);

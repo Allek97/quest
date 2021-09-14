@@ -54,7 +54,6 @@ export default function greedyBFS(
         if (minNode === undefined) {
             return;
         }
-        console.log(minNode);
 
         visitedSet.add(minNode);
 

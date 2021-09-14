@@ -96,13 +96,6 @@ export default function binaryTreeMaze(nodes, visitedMazeCells = new Map()) {
                 document.getElementById(previousNode.id).className =
                     "binarytree";
                 document.getElementById(node.id).className = "leadvertex";
-
-                /*console.log("PREVIOUS : ");
-        console.log(
-          "row : " + previousNode.row + "| col : " + previousNode.column
-        );
-        console.log("NODE : ");
-        console.log("row : " + node.row + "| col : " + node.column);*/
             }, 5 * spaceTime);
         });
     }, 2000);

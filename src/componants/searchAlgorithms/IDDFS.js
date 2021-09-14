@@ -75,7 +75,6 @@ export default function IDDFS(
             }
         }
         newThresholdVertices.set(depthLevelVertices, depthLevel);
-        console.log("depth level :" + depthLevel);
         depthLevel++;
     }
 

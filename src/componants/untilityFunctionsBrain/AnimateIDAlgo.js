@@ -111,8 +111,9 @@ export default function animateIDAlgo(
                     // Dans les deux cas : IDA et IDDFS
                 } else {
                     verticesSet.forEach((node) => {
-                        const htmlLink = document.getElementById(node.id)
-                            .className;
+                        const htmlLink = document.getElementById(
+                            node.id
+                        ).className;
                         // setTimeout(() => {
                         if (htmlLink.includes("weight")) {
                             document.getElementById(node.id).className =
@@ -155,7 +156,6 @@ export default function animateIDAlgo(
     let levelCount = 0;
     newThresholdVertices.forEach((level, verticesSet) => {
         if (levelCount === newThresholdVertices.size - 1) {
-            console.log(level);
             lastThreshold = level;
             lastDepthLevel = level;
         }
@@ -181,8 +181,6 @@ export default function animateIDAlgo(
     const shortPathTimeLength = (shortPath.size + 1) * shortPathSpeed + 1500;
     const visitedTimeLength = spaceTime * visitedSpeed;
     const totalTimeLength = visitedTimeLength + shortPathTimeLength + 1000;
-
-    console.log(totalTimeLength / 1000);
 
     return totalTimeLength;
 }

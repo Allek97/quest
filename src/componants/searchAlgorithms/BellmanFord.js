@@ -61,8 +61,6 @@ export default function bellmanFord(
 
     let tempNode = { ...last };
 
-    console.log(last);
-
     let zob = 0;
 
     while (!tempNode.isStart) {

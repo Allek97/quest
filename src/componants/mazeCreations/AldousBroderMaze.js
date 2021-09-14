@@ -52,9 +52,9 @@ export default function aldousBroderMaze(
 
     while (visitedMazeCells.size < gridSize) {
         const core = [...keepTracker].pop();
-        //console.log(core);
+
         const neighboursOfCore = adjacencyListMaze.get(core);
-        //console.log(neighboursOfCore);
+
         const randomPositionCell = getRandomKey(neighboursOfCore);
         const choosenCell = neighboursOfCore.get(randomPositionCell);
 
@@ -92,8 +92,6 @@ export default function aldousBroderMaze(
             visitedMazeCells.add(choosenCell);
         }
     }
-
-    console.log(visitedVertexList);
 
     /*while (vertexList.size < gridSize) {
     const core = getRandomKey(vertexWithNeighbours);
