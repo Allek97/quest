@@ -123,23 +123,23 @@ export default function OptionsComponant(props) {
                             Autoriser Les Diagonales
                         </h4>
 
-                        <div class="onoffdiagonal">
+                        <div className="onoffdiagonal">
                             <input
                                 type="checkbox"
                                 name="onoffdiagonal"
-                                class="onoffdiagonal__checkbox"
+                                className="onoffdiagonal__checkbox"
                                 id="myonoffdiagonal"
-                                tabindex="0"
+                                tabIndex="0"
                                 onClick={() => {
                                     updateDiagonal(!isDiagonal);
                                 }}
                             />
                             <label
-                                class="onoffdiagonal__label"
-                                for="myonoffdiagonal"
+                                className="onoffdiagonal__label"
+                                htmlFor="myonoffdiagonal"
                             >
-                                <span class="onoffdiagonal__inner"></span>
-                                <span class="onoffdiagonal__switch"></span>
+                                <span className="onoffdiagonal__inner"></span>
+                                <span className="onoffdiagonal__switch"></span>
                             </label>
                         </div>
                     </div>
@@ -159,16 +159,16 @@ export default function OptionsComponant(props) {
                         )}
 
                         <div
-                            class={
+                            className={
                                 isWeighted
                                     ? "slide-container"
                                     : "slide-container--closed"
                             }
                         >
-                            <div class="range-slider">
+                            <div className="range-slider">
                                 <span
                                     id="rs-bullet-weight"
-                                    class="rs-label rs-label--weight"
+                                    className="rs-label rs-label--weight"
                                 >
                                     5
                                 </span>
@@ -176,14 +176,14 @@ export default function OptionsComponant(props) {
                                     type="range"
                                     id="rs-range-line-weight"
                                     name="vol"
-                                    class="rs-range"
+                                    className="rs-range"
                                     defaultValue="5"
                                     min="1"
                                     max="200"
                                 />
                             </div>
 
-                            <div class="box-minmax">
+                            <div className="box-minmax">
                                 <span>1</span>
                                 <span>200</span>
                             </div>
@@ -204,16 +204,16 @@ export default function OptionsComponant(props) {
                         )}
 
                         <div
-                            class={
+                            className={
                                 isWeighted
                                     ? "slide-container"
                                     : "slide-container--closed"
                             }
                         >
-                            <div class="range-slider">
+                            <div className="range-slider">
                                 <span
                                     id="rs-bullet-reward"
-                                    class="rs-label rs-label__reward"
+                                    className="rs-label rs-label__reward"
                                 >
                                     -0.5
                                 </span>
@@ -221,7 +221,7 @@ export default function OptionsComponant(props) {
                                     type="range"
                                     id="rs-range-line-reward"
                                     name="vol"
-                                    class="rs-range"
+                                    className="rs-range"
                                     defaultValue="-0.5"
                                     min="-0.99"
                                     max="0.99"
@@ -229,7 +229,7 @@ export default function OptionsComponant(props) {
                                 />
                             </div>
 
-                            <div class="box-minmax">
+                            <div className="box-minmax">
                                 <span>-0.99</span>
                                 <span>0.99</span>
                             </div>

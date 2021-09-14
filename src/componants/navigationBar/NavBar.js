@@ -16,6 +16,7 @@ import diagonalDistance from "../searchAlgorithms/utilitityFunctions/heuristics/
 import euclidienDistance from "../searchAlgorithms/utilitityFunctions/heuristics/EuclidienDistance.js";
 import squaredEuclidienDistance from "../searchAlgorithms/utilitityFunctions/heuristics/SquaredEuclideanDistance.js";
 import octileDistance from "../searchAlgorithms/utilitityFunctions/heuristics/OctileDistance.js";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
     constructor(props) {
@@ -166,12 +167,12 @@ class NavBar extends Component {
                             backgroundColor: styleBackground,
                         }}
                     >
-                        <a href="javascript:void(0)" className="side-nav__link">
+                        <Link to="/" className="side-nav__link">
                             <StartButton className="side-nav__icon side-nav__icon--start-button" />
                             <p className="side-nav__algoname">
                                 {this.state.algoDisplay}
                             </p>
-                        </a>
+                        </Link>
                     </li>
 
                     <SubNav
@@ -210,10 +211,10 @@ class NavBar extends Component {
                                 this.props.resetBoard();
                         }}
                     >
-                        <a href="javascript:void(0)" className="side-nav__link">
+                        <Link to="/" className="side-nav__link">
                             <CrossedSwords className="side-nav__icon" />
                             Clear Board
-                        </a>
+                        </Link>
                     </li>
 
                     <li
@@ -223,14 +224,14 @@ class NavBar extends Component {
                                 resetCSS(this.props.nodes);
                         }}
                     >
-                        <a href="javascript:void(0)" className="side-nav__link">
+                        <Link to="/" className="side-nav__link">
                             <Catapult className="side-nav__icon" />
                             Clear Path & Tracks
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
-                <div class="legal">
+                <div className="legal">
                     &copy; {new Date().getFullYear()} by Ilias Allek. All rights
                     reserved.
                 </div>

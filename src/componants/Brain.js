@@ -97,8 +97,8 @@ class Brain extends Component {
         for (let row = 0; row < ROW_SIZE; row++) {
             for (let col = 0; col < COLUMN_SIZE; col++) {
                 nodes.push({
-                    key: uuidv4(),
-                    id: uuidv4(),
+                    key: `${row}-${col}`,
+                    id: `${row}-${col}`,
                     isStart:
                         row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
                     isEnd:

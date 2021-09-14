@@ -9,6 +9,7 @@ import "./Tutorial.scss";
 import "../base/_animations.scss";
 
 import { ReactComponent as Enjoy } from "../../svgs/enjoy.svg";
+import { Link } from "react-router-dom";
 
 export default function Tutorial(params) {
     let [isTutoOpen, setTutoOpen] = useState(false);
@@ -56,9 +57,9 @@ export default function Tutorial(params) {
                         Bravez les obstacles pour sauver la princesse
                     </h2>
 
-                    <a
+                    <Link
                         className="introduction__button btn btn--violet"
-                        href="javascript:void(0)"
+                        to="/"
                     >
                         tutoriel
                         <span
@@ -70,7 +71,7 @@ export default function Tutorial(params) {
                         >
                             &darr;
                         </span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="explanation" id="explanation">

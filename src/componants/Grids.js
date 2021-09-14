@@ -23,7 +23,6 @@ export class Grids extends Component {
     render() {
         const {
             id,
-            key,
             isStart,
             isEnd,
             isWall,
@@ -61,7 +60,7 @@ export class Grids extends Component {
         return (
             <div
                 id={id}
-                key={key}
+                key={id}
                 className={extraClassName}
                 ref={this.myRef}
                 onMouseDown={(e) => {
