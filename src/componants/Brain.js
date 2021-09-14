@@ -128,7 +128,7 @@ class Brain extends Component {
         for (let row = 0; row < ROW_SIZE; row++) {
             for (let col = 0; col < COLUMN_SIZE; col++) {
                 nodes.push({
-                    id: uuidv4(),
+                    id: `${row} - ${col}`,
                     isStart:
                         row === KNIGHT_ROW && col === KNIGHT_COL ? true : false,
                     isEnd:
@@ -1334,7 +1334,7 @@ class Brain extends Component {
                         {nodes.map((node, rowIdx) => {
                             return (
                                 <Grids
-                                    key={node.key}
+                                    key={rowIdx}
                                     id={node.id}
                                     node={node}
                                     isStart={node.isStart}

@@ -232,7 +232,7 @@ class NavBar extends Component {
                 </ul>
 
                 <div className="legal">
-                    &copy; {new Date().getFullYear()} by Ilias Allek. All rights
+                    &copy; {new Date().getFullYear()} by IA. All rights
                     reserved.
                 </div>
             </nav>

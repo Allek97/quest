@@ -389,7 +389,7 @@ export default function Lore() {
                             </span>
                             Well a little backstory here, I graduated with a
                             Math/Statistics degree in December 2020 from
-                            University de Montreal after a very tough year.
+                            University of Montreal after a very tough year.
                             Before graduating, I was worrying about my future
                             and what I will do next, I was convinced that I
                             should persue a master degree in computer science,

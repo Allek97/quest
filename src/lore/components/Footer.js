@@ -32,8 +32,8 @@ export default function Footer() {
         <Container>
             <article>
                 <h3>
-                    copyright&copy; {new Date().getFullYear()}{" "}
-                    <span>Ilias Allek </span> all rights reserved
+                    copyright&copy; {new Date().getFullYear()} <span>IA </span>{" "}
+                    all rights reserved
                 </h3>
             </article>
         </Container>
