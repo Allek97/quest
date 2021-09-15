@@ -153,6 +153,9 @@ $greyText: #b3b3b3;
         display: none;
     }
 
+    scrollbar-color: #08725b #050f23 !important;
+    scrollbar-width: thin !important;
+
     &::-webkit-scrollbar {
         width: 5px;
     }
