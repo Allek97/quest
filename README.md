@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://explodii.netlify.app/" rel="noopener" target="_blank">
+ <img src="https://personal-website-me.s3.amazonaws.com/quest-project-1.png" alt="Project thumbnail"></a>
+</p>
+<h3 align="center">Quest</h3> 
+<div align="center" >
+    <a href="https://yourquest.netlify.app" rel="noopener" align="center"> https://yourquest.netlify.app
+    
+</div>
+<br>
+<div align="center">
 
-## Available Scripts
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center"> Quest (1st project) is an interactive app that allows you to run multiple pathfinding and perfect maze generation algorithms in a 2D grid. The goal is to find the most optimized path (if possible) between the knight and the princess while facing many obstacles. This application visualizes all the various algorithms and more ! (* Please try it on chrome canary/beta for best performance for now, working on fixing it for other browsers).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+</p>
 
-### `npm test`
+## 🥳 About This Production <a name = "problem_statement"></a>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I took a javascript course in college which I enjoyed a lot, solving problems using algorithms was my favourite part. One day, I stumbled into [Jamis Buck blog](https://weblog.jamisbuck.org/) about maze generation algorithms which I found fascinating. I decided to test my newly acquired React skills and make a project out of it.
 
-### `npm run build`
+As it says in the description, Quest is a visualisation tool that allows you to interact with a 2d Grid.You can run pathfinding algorithms, generate perfect mazes with unique algorithms, add walls,weights,rewards and more.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+There is also a LORE section where I explain some of the algorithms/data structures I implemented for this app, it's still on progress, I will be adding new content soon.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## ⛏️ Built With <a name = "tech_stack"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   [React/Create React App](https://reactjs.org/) - I used Create React App to build user interfaces in this web application.
+-   [SCSS](https://sass-lang.com/) - I used SCSS for the styling with Block Element Modifier (BEM) notation.
+-   [Netlify](https://www.heroku.com/) - I deployed the react app on the Netlify.
 
-### `npm run eject`
+## 🧐 For more details <a name = "tech_stack"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Please visit : https://iliasallek.com/quest/
