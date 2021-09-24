@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://explodii.netlify.app/" rel="noopener" target="_blank">
+  <a href="https://yourquest.netlify.app" rel="noopener" target="_blank">
  <img src="https://personal-website-me.s3.amazonaws.com/quest-project-1.png" alt="Project thumbnail"></a>
 </p>
 <h3 align="center">Quest</h3> 
@@ -28,6 +28,31 @@ I took a javascript course in college which I enjoyed a lot, solving problems us
 As it says in the description, Quest is a visualisation tool that allows you to interact with a 2d Grid.You can run pathfinding algorithms, generate perfect mazes with unique algorithms, add walls,weights,rewards and more.
 
 There is also a LORE section where I explain some of the algorithms/data structures I implemented for this app, it's still on progress, I will be adding new content soon.
+
+#### 📋 List of the search algorithms : <a name = "search_algorithms"></a>
+
+-   Depth-First Search Algorithm
+-   Dijkstra Algorithm
+-   A\* Algorithm
+-   Bellman–Ford Algorithm
+-   IDDFS
+-   IDA\*
+-   GreadyBFS
+-   Weighted Greedy BFS
+
+#### 📋 List of the maze generation algorithms : <a name = "search_algorithms"></a>
+
+-   Recursive Backtracking Maze
+-   Kruskal's Algorithm Maze
+-   Prim's Algorithm Maze
+-   Aldous Broder Algorithm Maze
+-   Growing Tree Algorithm Maze
+-   Hunt And Kill Algorithm Maze
+-   Wilson Algorithm Maze
+-   Eller Algorithm Maze
+-   Recursive Division Maze
+-   Sidewinder Algorithm Maze
+-   Binary Tree Maze
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
