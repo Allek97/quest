@@ -388,13 +388,12 @@ export default function Lore() {
                                 Why did I build this Web App ?
                             </span>
                             Well a little backstory here, I graduated with a
-                            Math/Statistics degree in December 2020 from
-                            University of Montreal after a very tough year.
-                            Before graduating, I was worrying about my future
-                            and what I will do next, I was convinced that I
-                            should persue a master degree in computer science,
-                            an idea that I dropped after a friend convinced me
-                            otherwise.
+                            Math/Statistics degree from University of Montreal
+                            after a very tough year. Before graduating, I was
+                            worrying about my future and what I will do next, I
+                            was convinced that I should persue a master degree
+                            in computer science, an idea that I dropped after a
+                            friend convinced me otherwise.
                         </p>
                         <p style={{ marginBottom: "3rem" }}>
                             I'm someone who like to solve problems and learn new

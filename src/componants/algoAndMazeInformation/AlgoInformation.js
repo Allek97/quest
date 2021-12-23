@@ -11,12 +11,7 @@ export default function AlgoInformation(props) {
         <div className="grid__information">
             {whichAlgoIsSelected === "" && (
                 <p className="heading heading--start">
-                    Please run this application in{" "}
-                    <span className="heading__complement">
-                        chrome canary or chrome beta
-                    </span>{" "}
-                    for best performance. It's a temporary measure! Vous pouvez
-                    selectionner des
+                    Vous pouvez selectionner des
                     <span className="heading__complement">
                         algorithmes de recherches
                     </span>{" "}

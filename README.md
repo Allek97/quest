@@ -17,8 +17,7 @@
 
 ---
 
-<p align="center"> Quest (1st project) is an interactive app that allows you to run multiple pathfinding and perfect maze generation algorithms in a 2D grid. The goal is to find the most optimized path (if possible) between the knight and the princess while facing many obstacles. This application visualizes all the various algorithms and more ! (* Please try it on chrome canary/beta for best performance for now, working on fixing it for other browsers).
-
+<p align="center"> Quest (1st project) is an interactive app that allows you to run multiple pathfinding and perfect maze generation algorithms in a 2D grid. The goal is to find the most optimized path (if possible) between the knight and the princess while facing many obstacles. This application visualizes all the various algorithms and more ! 
 </p>
 
 ## 🥳 About This Production <a name = "problem_statement"></a>
